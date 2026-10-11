@@ -1064,6 +1064,16 @@
     box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
   }
 
+  
+  /* DUAL FALLBACK & WIDGET DISPLAY */
+  .default-fallback {
+    display: block;
+    width: 100%;
+  }
+  .section:has(.custom-widget-content) ~ .default-fallback {
+    display: none !important;
+  }
+
   /* RESPONSIVE DESIGN */
   @media (max-width: 992px) {
     .hero-grid, .location-grid {
@@ -1165,37 +1175,42 @@
   </header>
 
   <main>
-    <!-- ================= [2] HERO BANNER PROMO ================= -->
+        <!-- ================= [2] HERO BANNER PROMO ================= -->
     <section class='hero-section' id='beranda'>
       <div class='container'>
         <b:section id='sec-hero' maxwidgets='1' name='[2] Hero Banner &amp; Promo Utama' showaddelement='yes'>
           <b:widget id='HTML11' locked='false' title='Promo Hero Banner' type='HTML'>
             <b:includable id='main'>
               <b:if cond='data:content'>
-                <data:content/>
-              <b:else/>
-                <div class='hero-grid'>
-                  <div class='hero-content'>
-                    <div class='badge-pill'>✨ Hunian Asri &amp; Strategis</div>
-                    <h1 class='hero-headline'>Wujudkan Rumah Impian Keluarga dengan <span>Cicilan Ringan</span></h1>
-                    <p class='hero-desc'>Perumahan subsidi dan komersil modern dengan lingkungan asri, bebas banjir, fasilitas lengkap, dan akses tol mudah.</p>
-                    <div class='hero-btns'>
-                      <a class='btn btn-primary' href='#type-rumah'>Pilih Tipe Rumah</a>
-                      <a class='btn btn-outline' href='#marketing'>Konsultasi KPR Gratis</a>
-                    </div>
-                  </div>
-                  <div class='hero-visual'>
-                    <img alt='Promo Utama Perumahan' src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                    <div class='hero-visual-badge'>
-                      <h4 style='font-size:1.1rem; font-weight:700;'>Promo Spesial DP 1% &amp; Bebas Biaya KPR</h4>
-                      <p style='font-size:0.85rem; color:#cbd5e1;'>Cicilan terjangkau mulai Rp 1 Jutaan / bulan. Unit Terbatas!</p>
-                    </div>
-                  </div>
+                <div class='custom-widget-content'>
+                  <data:content/>
                 </div>
               </b:if>
             </b:includable>
           </b:widget>
         </b:section>
+
+        <!-- Dummy Data Bawaan / Fallback Otomatis -->
+        <div class='default-fallback' id='fallback-hero'>
+          <div class='hero-grid'>
+            <div class='hero-content'>
+              <div class='badge-pill'>✨ Hunian Asri &amp; Strategis</div>
+              <h1 class='hero-headline'>Wujudkan Rumah Impian Keluarga dengan <span>Cicilan Ringan</span></h1>
+              <p class='hero-desc'>Perumahan subsidi dan komersil modern dengan lingkungan asri, bebas banjir, fasilitas lengkap, dan akses tol mudah.</p>
+              <div class='hero-btns'>
+                <a class='btn btn-primary' href='#type-rumah'>Pilih Tipe Rumah</a>
+                <a class='btn btn-outline' href='#marketing'>Konsultasi KPR Gratis</a>
+              </div>
+            </div>
+            <div class='hero-visual'>
+              <img alt='Promo Utama Perumahan' src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&amp;auto=format&amp;fit=crop&amp;q=80'/>
+              <div class='hero-visual-badge'>
+                <h4 style='font-size:1.1rem; font-weight:700;'>Promo Spesial DP 1% &amp; Bebas Biaya KPR</h4>
+                <p style='font-size:0.85rem; color:#cbd5e1;'>Cicilan terjangkau mulai Rp 1 Jutaan / bulan. Unit Terbatas!</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1212,39 +1227,44 @@
           <b:widget id='HTML12' locked='false' title='Daftar 5 Keunggulan' type='HTML'>
             <b:includable id='main'>
               <b:if cond='data:content'>
-                <data:content/>
-              <b:else/>
-                <div class='features-grid'>
-                  <div class='feature-card'>
-                    <div class='feature-icon-box'>💰</div>
-                    <h3>Cicilan Ringan</h3>
-                    <p>Angsuran flat subsidi mulai Rp 1 Jutaan per bulan hingga lunas, sangat terjangkau bagi pasangan muda.</p>
-                  </div>
-                  <div class='feature-card'>
-                    <div class='feature-icon-box'>🏷️</div>
-                    <h3>DP Hanya 1%</h3>
-                    <p>Cukup bayar uang muka 1% Anda sudah bisa memilih nomor kavling idaman dan proses akad.</p>
-                  </div>
-                  <div class='feature-card'>
-                    <div class='feature-icon-box'>📐</div>
-                    <h3>Type Luas &amp; Asri</h3>
-                    <p>Pemanfaatan ruang maksimal, sirkulasi udara silang, plafon tinggi, serta sisa tanah belakang luas.</p>
-                  </div>
-                  <div class='feature-card'>
-                    <div class='feature-icon-box'>🧱</div>
-                    <h3>Double Dinding</h3>
-                    <p>Struktur dinding ganda (hebel/bata merah) yang meredam suara tetangga dan memastikan kekokohan.</p>
-                  </div>
-                  <div class='feature-card'>
-                    <div class='feature-icon-box'>🛣️</div>
-                    <h3>Lingkungan Ramai</h3>
-                    <p>Sudah dihuni ratusan KK, dekat pasar tradisional, sekolah favorit, rumah sakit, dan gerbang tol.</p>
-                  </div>
+                <div class='custom-widget-content'>
+                  <data:content/>
                 </div>
               </b:if>
             </b:includable>
           </b:widget>
         </b:section>
+
+        <!-- Dummy Data 5 Keunggulan -->
+        <div class='default-fallback' id='fallback-keunggulan'>
+          <div class='features-grid'>
+            <div class='feature-card'>
+              <div class='feature-icon-box'>💰</div>
+              <h3>Cicilan Ringan</h3>
+              <p>Angsuran flat subsidi mulai Rp 1 Jutaan per bulan hingga lunas, sangat terjangkau bagi keluarga muda.</p>
+            </div>
+            <div class='feature-card'>
+              <div class='feature-icon-box'>🏷️</div>
+              <h3>DP Hanya 1%</h3>
+              <p>Cukup bayar uang muka 1% Anda sudah bisa memilih nomor kavling idaman dan proses akad kredit.</p>
+            </div>
+            <div class='feature-card'>
+              <div class='feature-icon-box'>📐</div>
+              <h3>Type Luas &amp; Asri</h3>
+              <p>Pemanfaatan ruang maksimal, sirkulasi udara silang, plafon tinggi, serta sisa tanah belakang yang lega.</p>
+            </div>
+            <div class='feature-card'>
+              <div class='feature-icon-box'>🧱</div>
+              <h3>Double Dinding</h3>
+              <p>Struktur dinding ganda (hebel/bata merah) yang meredam suara tetangga dan memastikan kekokohan bangunan.</p>
+            </div>
+            <div class='feature-card'>
+              <div class='feature-icon-box'>🛣️</div>
+              <h3>Lingkungan Ramai</h3>
+              <p>Sudah dihuni ratusan KK, dekat pasar tradisional, sekolah favorit, rumah sakit, dan gerbang tol.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1267,79 +1287,110 @@
           <b:widget id='HTML13' locked='false' title='Daftar Tipe Rumah' type='HTML'>
             <b:includable id='main'>
               <b:if cond='data:content'>
-                <data:content/>
-              <b:else/>
-                <div class='listing-grid'>
-                  <!-- Unit 1 -->
-                  <div class='property-card' data-category='subsidi'>
-                    <div class='property-thumb-wrap'>
-                      <span class='property-badge badge-subsidi'>Subsidi Pemerintah</span>
-                      <img alt='Type 30/60 Subsidi' src='https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                    </div>
-                    <div class='property-body'>
-                      <h3 class='property-title'>Type 30/60 (Pesona Asri)</h3>
-                      <div class='property-price'>Rp 185.000.000</div>
-                      <div class='property-installment'>Angsuran: Mulai Rp 1,1 Juta/bln (Flat)</div>
-                      <div class='property-specs-grid'>
-                        <div class='spec-item'><span class='spec-icon'>🛏️</span><span class='spec-label'>2 Kamar</span></div>
-                        <div class='spec-item'><span class='spec-icon'>🚿</span><span class='spec-label'>1 Mandi</span></div>
-                        <div class='spec-item'><span class='spec-icon'>🚗</span><span class='spec-label'>Carport</span></div>
-                        <div class='spec-item'><span class='spec-icon'>🛋️</span><span class='spec-label'>R. Tamu</span></div>
-                      </div>
-                      <div class='property-actions'>
-                        <a class='btn btn-primary btn-sm' href='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Rumah%20Type%2030%2F60%20Subsidi.' style='width:100%;' target='_blank'>Chat Sales WhatsApp</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Unit 2 -->
-                  <div class='property-card' data-category='komersil'>
-                    <div class='property-thumb-wrap'>
-                      <span class='property-badge badge-komersil'>Komersil Eksklusif</span>
-                      <img alt='Type 45/72 Komersil' src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                    </div>
-                    <div class='property-body'>
-                      <h3 class='property-title'>Type 45/72 (Pesona Sapphire)</h3>
-                      <div class='property-price'>Rp 395.000.000</div>
-                      <div class='property-installment'>Angsuran: Mulai Rp 2,6 Juta/bln</div>
-                      <div class='property-specs-grid'>
-                        <div class='spec-item'><span class='spec-icon'>🛏️</span><span class='spec-label'>2 Kamar</span></div>
-                        <div class='spec-item'><span class='spec-icon'>🚿</span><span class='spec-label'>1 Mandi</span></div>
-                        <div class='spec-item'><span class='spec-icon'>🚗</span><span class='spec-label'>Carport</span></div>
-                        <div class='spec-item'><span class='spec-icon'>🛋️</span><span class='spec-label'>R. Tamu</span></div>
-                      </div>
-                      <div class='property-actions'>
-                        <a class='btn btn-primary btn-sm' href='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Rumah%20Type%2045%2F72%20Komersil.' style='width:100%;' target='_blank'>Chat Sales WhatsApp</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Unit 3 -->
-                  <div class='property-card' data-category='komersil'>
-                    <div class='property-thumb-wrap'>
-                      <span class='property-badge badge-komersil'>Komersil 2 Lantai</span>
-                      <img alt='Type 60/90 Komersil' src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                    </div>
-                    <div class='property-body'>
-                      <h3 class='property-title'>Type 60/90 (Pesona Diamond)</h3>
-                      <div class='property-price'>Rp 575.000.000</div>
-                      <div class='property-installment'>Angsuran: Mulai Rp 3,8 Juta/bln</div>
-                      <div class='property-specs-grid'>
-                        <div class='spec-item'><span class='spec-icon'>🛏️</span><span class='spec-label'>3 Kamar</span></div>
-                        <div class='spec-item'><span class='spec-icon'>🚿</span><span class='spec-label'>2 Mandi</span></div>
-                        <div class='spec-item'><span class='spec-icon'>🚗</span><span class='spec-label'>Carport</span></div>
-                        <div class='spec-item'><span class='spec-icon'>🛋️</span><span class='spec-label'>2 R. Tamu</span></div>
-                      </div>
-                      <div class='property-actions'>
-                        <a class='btn btn-primary btn-sm' href='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Rumah%20Type%2060%2F90%20Komersil.' style='width:100%;' target='_blank'>Chat Sales WhatsApp</a>
-                      </div>
-                    </div>
-                  </div>
+                <div class='custom-widget-content'>
+                  <data:content/>
                 </div>
               </b:if>
             </b:includable>
           </b:widget>
         </b:section>
+
+        <!-- Dummy Data Listing Unit Rumah -->
+        <div class='default-fallback' id='fallback-listing'>
+          <div class='listing-grid'>
+            <!-- Unit 1: Subsidi 30/60 -->
+            <div class='property-card' data-category='subsidi'>
+              <div class='property-thumb-wrap'>
+                <span class='property-badge badge-subsidi'>Subsidi Pemerintah</span>
+                <img alt='Type 30/60 Subsidi' src='https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&amp;auto=format&amp;fit=crop&amp;q=80'/>
+              </div>
+              <div class='property-body'>
+                <h3 class='property-title'>Type 30/60 (Pesona Asri)</h3>
+                <div class='property-price'>Rp 185.000.000</div>
+                <div class='property-installment'>Angsuran: Mulai Rp 1,1 Juta/bln (Flat)</div>
+                <div class='property-specs-grid'>
+                  <div class='spec-item'><span class='spec-icon'>🛏️</span><span class='spec-label'>2 Kamar</span></div>
+                  <div class='spec-item'><span class='spec-icon'>🚿</span><span class='spec-label'>1 Mandi</span></div>
+                  <div class='spec-item'><span class='spec-icon'>🚗</span><span class='spec-label'>Carport</span></div>
+                  <div class='spec-item'><span class='spec-icon'>🛋️</span><span class='spec-label'>R. Tamu</span></div>
+                </div>
+                <div class='property-actions' style='display:flex; gap:8px;'>
+                  <button class='btn btn-outline btn-sm btn-detail-unit' data-unit-img='https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&amp;auto=format&amp;fit=crop&amp;q=80' data-unit-installment='Mulai Rp 1,1 Juta / Bulan (Flat 5%)' data-unit-price='Rp 185.000.000' data-unit-specs='&lt;ul style=&quot;padding-left:18px; margin:0;&quot;&gt;&lt;li&gt;LT: 60 m² / LB: 30 m²&lt;/li&gt;&lt;li&gt;2 Kamar Tidur, 1 Kamar Mandi, Carport, R. Tamu&lt;/li&gt;&lt;li&gt;Double Dinding Bata Hebel Plester Aci&lt;/li&gt;&lt;li&gt;Rangka Atap Baja Ringan, Genteng Metal&lt;/li&gt;&lt;li&gt;Listrik 1300 Watt, Air Sumur Pantek Bersih&lt;/li&gt;&lt;/ul&gt;' data-unit-title='Type 30/60 - Pesona Asri (Subsidi)' data-unit-wa='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Rumah%20Type%2030%2F60%20Subsidi.' style='flex:1;' type='button'>🔍 Detail Unit</button>
+                  <a class='btn btn-primary btn-sm' href='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Rumah%20Type%2030%2F60%20Subsidi.' style='flex:1;' target='_blank'>Chat WA</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Unit 2: Subsidi Hook 30/90 -->
+            <div class='property-card' data-category='subsidi'>
+              <div class='property-thumb-wrap'>
+                <span class='property-badge badge-subsidi'>Subsidi + Hook</span>
+                <img alt='Type 30/90 Hook' src='https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&amp;auto=format&amp;fit=crop&amp;q=80'/>
+              </div>
+              <div class='property-body'>
+                <h3 class='property-title'>Type 30/90 (Pesona Hook)</h3>
+                <div class='property-price'>Rp 235.000.000</div>
+                <div class='property-installment'>Angsuran: Mulai Rp 1,4 Juta/bln (Flat)</div>
+                <div class='property-specs-grid'>
+                  <div class='spec-item'><span class='spec-icon'>🛏️</span><span class='spec-label'>2 Kamar</span></div>
+                  <div class='spec-item'><span class='spec-icon'>🚿</span><span class='spec-label'>1 Mandi</span></div>
+                  <div class='spec-item'><span class='spec-icon'>🚗</span><span class='spec-label'>Carport</span></div>
+                  <div class='spec-item'><span class='spec-icon'>🌳</span><span class='spec-label'>Sisa Tanah</span></div>
+                </div>
+                <div class='property-actions' style='display:flex; gap:8px;'>
+                  <button class='btn btn-outline btn-sm btn-detail-unit' data-unit-img='https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&amp;auto=format&amp;fit=crop&amp;q=80' data-unit-installment='Mulai Rp 1,4 Juta / Bulan (Flat 5%)' data-unit-price='Rp 235.000.000' data-unit-specs='&lt;ul style=&quot;padding-left:18px; margin:0;&quot;&gt;&lt;li&gt;LT: 90 m² (Posisi Hook) / LB: 30 m²&lt;/li&gt;&lt;li&gt;2 Kamar Tidur, 1 Kamar Mandi, Carport Luas&lt;/li&gt;&lt;li&gt;Halaman Samping Ekstra 30 m² siap bangun&lt;/li&gt;&lt;li&gt;Rangka Atap Baja Ringan, Plafon Gypsum&lt;/li&gt;&lt;li&gt;Listrik 1300 Watt, Legalitas Aman&lt;/li&gt;&lt;/ul&gt;' data-unit-title='Type 30/90 Hook - Pesona Hook (Subsidi)' data-unit-wa='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Rumah%20Type%2030%2F90%20Hook.' style='flex:1;' type='button'>🔍 Detail Unit</button>
+                  <a class='btn btn-primary btn-sm' href='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Rumah%20Type%2030%2F90%20Hook.' style='flex:1;' target='_blank'>Chat WA</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Unit 3: Komersil 36/60 -->
+            <div class='property-card' data-category='komersil'>
+              <div class='property-thumb-wrap'>
+                <span class='property-badge badge-komersil'>Komersil Modern</span>
+                <img alt='Type 36/60 Komersil' src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&amp;auto=format&amp;fit=crop&amp;q=80'/>
+              </div>
+              <div class='property-body'>
+                <h3 class='property-title'>Type 36/60 (Pesona Ruby)</h3>
+                <div class='property-price'>Rp 295.000.000</div>
+                <div class='property-installment'>Angsuran: Mulai Rp 2,2 Juta/bln</div>
+                <div class='property-specs-grid'>
+                  <div class='spec-item'><span class='spec-icon'>🛏️</span><span class='spec-label'>2 Kamar</span></div>
+                  <div class='spec-item'><span class='spec-icon'>🚿</span><span class='spec-label'>1 Mandi</span></div>
+                  <div class='spec-item'><span class='spec-icon'>🚗</span><span class='spec-label'>Carport</span></div>
+                  <div class='spec-item'><span class='spec-icon'>🍳</span><span class='spec-label'>Dapur</span></div>
+                </div>
+                <div class='property-actions' style='display:flex; gap:8px;'>
+                  <button class='btn btn-outline btn-sm btn-detail-unit' data-unit-img='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&amp;auto=format&amp;fit=crop&amp;q=80' data-unit-installment='Mulai Rp 2,2 Juta / Bulan' data-unit-price='Rp 295.000.000' data-unit-specs='&lt;ul style=&quot;padding-left:18px; margin:0;&quot;&gt;&lt;li&gt;LT: 60 m² / LB: 36 m²&lt;/li&gt;&lt;li&gt;2 Kamar Tidur, 1 Kamar Mandi, Dapur Tertutup&lt;/li&gt;&lt;li&gt;Lantai Granit 60x60, Sanitair Kloset Duduk&lt;/li&gt;&lt;li&gt;Carport Rabat Beton &amp; Canopy Minimalis&lt;/li&gt;&lt;li&gt;Listrik 2200 Watt, Air Bersih Siap Pakai&lt;/li&gt;&lt;/ul&gt;' data-unit-title='Type 36/60 - Pesona Ruby (Komersil)' data-unit-wa='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Rumah%20Type%2036%2F60%20Komersil.' style='flex:1;' type='button'>🔍 Detail Unit</button>
+                  <a class='btn btn-primary btn-sm' href='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Rumah%20Type%2036%2F60%20Komersil.' style='flex:1;' target='_blank'>Chat WA</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Unit 4: Komersil 45/72 -->
+            <div class='property-card' data-category='komersil'>
+              <div class='property-thumb-wrap'>
+                <span class='property-badge badge-komersil'>Komersil Premium</span>
+                <img alt='Type 45/72 Komersil' src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&amp;auto=format&amp;fit=crop&amp;q=80'/>
+              </div>
+              <div class='property-body'>
+                <h3 class='property-title'>Type 45/72 (Pesona Sapphire)</h3>
+                <div class='property-price'>Rp 395.000.000</div>
+                <div class='property-installment'>Angsuran: Mulai Rp 2,8 Juta/bln</div>
+                <div class='property-specs-grid'>
+                  <div class='spec-item'><span class='spec-icon'>🛏️</span><span class='spec-label'>3 Kamar</span></div>
+                  <div class='spec-item'><span class='spec-icon'>🚿</span><span class='spec-label'>1 Mandi</span></div>
+                  <div class='spec-item'><span class='spec-icon'>🚗</span><span class='spec-label'>Carport</span></div>
+                  <div class='spec-item'><span class='spec-icon'>🛋️</span><span class='spec-label'>R. Keluarga</span></div>
+                </div>
+                <div class='property-actions' style='display:flex; gap:8px;'>
+                  <button class='btn btn-outline btn-sm btn-detail-unit' data-unit-img='https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&amp;auto=format&amp;fit=crop&amp;q=80' data-unit-installment='Mulai Rp 2,8 Juta / Bulan' data-unit-price='Rp 395.000.000' data-unit-specs='&lt;ul style=&quot;padding-left:18px; margin:0;&quot;&gt;&lt;li&gt;LT: 72 m² / LB: 45 m²&lt;/li&gt;&lt;li&gt;3 Kamar Tidur, 1 Kamar Mandi, R. Keluarga Luas&lt;/li&gt;&lt;li&gt;Kusen Aluminium Powder Coating &amp; Pintu Panel Kayu&lt;/li&gt;&lt;li&gt;Dinding Bata Merah Plester Aci, Cat Jotun/Dulux&lt;/li&gt;&lt;li&gt;Listrik 2200 Watt, Bebas Biaya BPHTB &amp; Notaris&lt;/li&gt;&lt;/ul&gt;' data-unit-title='Type 45/72 - Pesona Sapphire (Komersil)' data-unit-wa='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Rumah%20Type%2045%2F72%20Komersil.' style='flex:1;' type='button'>🔍 Detail Unit</button>
+                  <a class='btn btn-primary btn-sm' href='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Rumah%20Type%2045%2F72%20Komersil.' style='flex:1;' target='_blank'>Chat WA</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1356,45 +1407,50 @@
           <b:widget id='HTML14' locked='false' title='Tabel Simulasi Cicilan' type='HTML'>
             <b:includable id='main'>
               <b:if cond='data:content'>
-                <data:content/>
-              <b:else/>
-                <div class='pricing-wrap'>
-                  <!-- Subsidi -->
-                  <div class='pricing-card'>
-                    <div class='pricing-badge'>Subsidi Pemerintah</div>
-                    <h3>Subsidi Type 30/60</h3>
-                    <div class='pricing-price'>Rp 185.000.000</div>
-                    <div class='pricing-subtitle'>Angsuran Flat Sampai Lunas</div>
-                    <ul class='pricing-features'>
-                      <li><span>⏱️ Tenor 20 Tahun:</span> <strong>Rp 1.190.000 /bln</strong></li>
-                      <li><span>⏱️ Tenor 15 Tahun:</span> <strong>Rp 1.420.000 /bln</strong></li>
-                      <li><span>⏱️ Tenor 10 Tahun:</span> <strong>Rp 1.910.000 /bln</strong></li>
-                      <li><span>🧱 Struktur:</span> Double Dinding Bata Hebel</li>
-                      <li><span>🏷️ Biaya Awal:</span> DP Hanya 1%</li>
-                    </ul>
-                    <a class='btn btn-primary' href='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Booking%20Rumah%20Subsidi%20Type%2030%2F60.' target='_blank'>Booking Unit Subsidi</a>
-                  </div>
-
-                  <!-- Komersil -->
-                  <div class='pricing-card featured'>
-                    <div class='pricing-badge'>Paling Diminati</div>
-                    <h3>Komersil Type 36/60</h3>
-                    <div class='pricing-price'>Rp 395.000.000</div>
-                    <div class='pricing-subtitle'>Desain Modern Double Dinding</div>
-                    <ul class='pricing-features'>
-                      <li><span>⏱️ Tenor 20 Tahun:</span> <strong>Rp 2.450.000 /bln</strong></li>
-                      <li><span>⏱️ Tenor 15 Tahun:</span> <strong>Rp 2.890.000 /bln</strong></li>
-                      <li><span>⏱️ Tenor 10 Tahun:</span> <strong>Rp 3.650.000 /bln</strong></li>
-                      <li><span>🧱 Struktur:</span> Bata Merah &amp; Granit 60x60</li>
-                      <li><span>🚗 Carport:</span> Rabat Beton Siap Pakai</li>
-                    </ul>
-                    <a class='btn btn-primary' href='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Booking%20Rumah%20Komersil%20Type%2036%2F60.' target='_blank'>Booking Unit Komersil</a>
-                  </div>
+                <div class='custom-widget-content'>
+                  <data:content/>
                 </div>
               </b:if>
             </b:includable>
           </b:widget>
         </b:section>
+
+        <!-- Dummy Data Simulasi KPR -->
+        <div class='default-fallback' id='fallback-harga'>
+          <div class='pricing-wrap'>
+            <!-- Subsidi -->
+            <div class='pricing-card'>
+              <div class='pricing-badge'>Subsidi Pemerintah</div>
+              <h3>Subsidi Type 30/60</h3>
+              <div class='pricing-price'>Rp 185.000.000</div>
+              <div class='pricing-subtitle'>Angsuran Flat 5% Sampai Lunas</div>
+              <ul class='pricing-features'>
+                <li><span>⏱️ Tenor 20 Tahun:</span> <strong>Rp 1.190.000 /bln</strong></li>
+                <li><span>⏱️ Tenor 15 Tahun:</span> <strong>Rp 1.420.000 /bln</strong></li>
+                <li><span>⏱️ Tenor 10 Tahun:</span> <strong>Rp 1.910.000 /bln</strong></li>
+                <li><span>🧱 Struktur:</span> Double Dinding Bata Hebel</li>
+                <li><span>🏷️ Biaya Awal:</span> DP Hanya 1% (Bisa Dicicil)</li>
+              </ul>
+              <a class='btn btn-primary' href='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Booking%20Rumah%20Subsidi%20Type%2030%2F60.' target='_blank'>Booking Unit Subsidi</a>
+            </div>
+
+            <!-- Komersil -->
+            <div class='pricing-card featured'>
+              <div class='pricing-badge'>Paling Diminati</div>
+              <h3>Komersil Type 36/60</h3>
+              <div class='pricing-price'>Rp 295.000.000</div>
+              <div class='pricing-subtitle'>Desain Modern Double Dinding &amp; Granit</div>
+              <ul class='pricing-features'>
+                <li><span>⏱️ Tenor 20 Tahun:</span> <strong>Rp 2.250.000 /bln</strong></li>
+                <li><span>⏱️ Tenor 15 Tahun:</span> <strong>Rp 2.690.000 /bln</strong></li>
+                <li><span>⏱️ Tenor 10 Tahun:</span> <strong>Rp 3.450.000 /bln</strong></li>
+                <li><span>🧱 Struktur:</span> Lantai Granit &amp; Dinding Bata Merah</li>
+                <li><span>🚗 Bonus:</span> Gratis Biaya Notaris &amp; BPHTB</li>
+              </ul>
+              <a class='btn btn-primary' href='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Booking%20Rumah%20Komersil%20Type%2036%2F60.' target='_blank'>Booking Unit Komersil</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1411,38 +1467,55 @@
           <b:widget id='HTML15' locked='false' title='Foto Galeri Kawasan' type='HTML'>
             <b:includable id='main'>
               <b:if cond='data:content'>
-                <data:content/>
-              <b:else/>
-                <div class='gallery-grid'>
-                  <div class='gallery-item'>
-                    <a data-caption='Taman Bermain &amp; Lingkungan Asri Cluster' data-fancybox='gallery' href='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=1200&amp;auto=format&amp;fit=crop&amp;q=80'>
-                      <img alt='Taman Bermain Anak' src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                      <div class='gallery-overlay'><span>Taman Bermain &amp; Jogging Track</span></div>
-                    </a>
-                  </div>
-                  <div class='gallery-item'>
-                    <a data-caption='Dokumentasi Akad Massal KPR Bersama Bank BUMN' data-fancybox='gallery' href='https://images.unsplash.com/photo-1577495508048-b635879837f1?w=1200&amp;auto=format&amp;fit=crop&amp;q=80'>
-                      <img alt='Akad Kredit Masal' src='https://images.unsplash.com/photo-1577495508048-b635879837f1?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                      <div class='gallery-overlay'><span>Dokumentasi Akad Masal Bersama Bank</span></div>
-                    </a>
-                  </div>
-                  <div class='gallery-item'>
-                    <a data-caption='One Gate System &amp; Security 24 Jam' data-fancybox='gallery' href='https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&amp;auto=format&amp;fit=crop&amp;q=80'>
-                      <img alt='Gerbang Utama &amp; Pos Satpam' src='https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                      <div class='gallery-overlay'><span>One Gate System &amp; Pos Keamanan</span></div>
-                    </a>
-                  </div>
-                  <div class='gallery-item'>
-                    <a data-caption='Momen Bahagia Serah Terima Kunci Konsumen' data-fancybox='gallery' href='https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&amp;auto=format&amp;fit=crop&amp;q=80'>
-                      <img alt='Serah Terima Kunci' src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                      <div class='gallery-overlay'><span>Serah Terima Kunci Rumah Idaman</span></div>
-                    </a>
-                  </div>
+                <div class='custom-widget-content'>
+                  <data:content/>
                 </div>
               </b:if>
             </b:includable>
           </b:widget>
         </b:section>
+
+        <!-- Dummy Data Galeri FancyBox -->
+        <div class='default-fallback' id='fallback-galeri'>
+          <div class='gallery-grid'>
+            <div class='gallery-item'>
+              <a data-caption='Taman Bermain &amp; Lingkungan Asri Cluster' data-fancybox='gallery' href='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=1200&amp;auto=format&amp;fit=crop&amp;q=80'>
+                <img alt='Taman Bermain Anak' src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
+                <div class='gallery-overlay'><span>Taman Bermain &amp; Jogging Track</span></div>
+              </a>
+            </div>
+            <div class='gallery-item'>
+              <a data-caption='Dokumentasi Akad Massal KPR Bersama Bank BUMN' data-fancybox='gallery' href='https://images.unsplash.com/photo-1577495508048-b635879837f1?w=1200&amp;auto=format&amp;fit=crop&amp;q=80'>
+                <img alt='Akad Kredit Masal' src='https://images.unsplash.com/photo-1577495508048-b635879837f1?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
+                <div class='gallery-overlay'><span>Dokumentasi Akad Masal Bersama Bank</span></div>
+              </a>
+            </div>
+            <div class='gallery-item'>
+              <a data-caption='One Gate System &amp; Security 24 Jam' data-fancybox='gallery' href='https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&amp;auto=format&amp;fit=crop&amp;q=80'>
+                <img alt='Gerbang Utama &amp; Pos Satpam' src='https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
+                <div class='gallery-overlay'><span>One Gate System &amp; Pos Keamanan</span></div>
+              </a>
+            </div>
+            <div class='gallery-item'>
+              <a data-caption='Momen Bahagia Serah Terima Kunci Konsumen' data-fancybox='gallery' href='https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&amp;auto=format&amp;fit=crop&amp;q=80'>
+                <img alt='Serah Terima Kunci' src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
+                <div class='gallery-overlay'><span>Serah Terima Kunci Rumah Idaman</span></div>
+              </a>
+            </div>
+            <div class='gallery-item'>
+              <a data-caption='Jalan Lingkungan Lebar Cor Beton 7 Meter' data-fancybox='gallery' href='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&amp;auto=format&amp;fit=crop&amp;q=80'>
+                <img alt='Jalan Perumahan Cor Beton' src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
+                <div class='gallery-overlay'><span>Jalan Row 7 Meter Cor Beton Bebas Banjir</span></div>
+              </a>
+            </div>
+            <div class='gallery-item'>
+              <a data-caption='Rumah Contoh Interior Minimalis Modern' data-fancybox='gallery' href='https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&amp;auto=format&amp;fit=crop&amp;q=80'>
+                <img alt='Rumah Contoh Interior' src='https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
+                <div class='gallery-overlay'><span>Interior Show Unit Siap Huni</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1453,26 +1526,36 @@
           <b:widget id='HTML16' locked='false' title='Profil Sales Advisor' type='HTML'>
             <b:includable id='main'>
               <b:if cond='data:content'>
-                <data:content/>
-              <b:else/>
-                <div class='marketing-card'>
-                  <img alt='Official Marketing' class='marketing-photo' src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                  <div class='marketing-info'>
-                    <div class='badge-pill'>Konsultan Properti Resmi</div>
-                    <h3>Siti Rahmawati, S.E.</h3>
-                    <div class='marketing-role'>Senior Property Advisor - Pesona Group</div>
-                    <p class='marketing-bio'>
-                      &quot;Halo! Saya siap membantu Anda mulai dari survei lokasi, konsultasi berkas KPR subsidi maupun komersil, hingga serah terima kunci secara ramah dan transparan.&quot;
-                    </p>
-                    <a class='btn btn-primary' href='https://wa.me/6281234567890?text=Halo%20Mbak%20Siti%2C%20saya%20tertarik%20dengan%20info%20perumahan.' target='_blank'>
-                      💬 Chat WhatsApp Langsung (0812-3456-7890)
-                    </a>
-                  </div>
+                <div class='custom-widget-content'>
+                  <data:content/>
                 </div>
               </b:if>
             </b:includable>
           </b:widget>
         </b:section>
+
+        <!-- Dummy Data Profil Marketing -->
+        <div class='default-fallback' id='fallback-marketing'>
+          <div class='marketing-card'>
+            <img alt='Official Marketing' class='marketing-photo' src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&amp;auto=format&amp;fit=crop&amp;q=80'/>
+            <div class='marketing-info'>
+              <div class='badge-pill'>Konsultan Properti Resmi</div>
+              <h3>Siti Rahmawati, S.E.</h3>
+              <div class='marketing-role'>Senior Property Advisor - Pesona Group</div>
+              <p class='marketing-bio'>
+                &quot;Halo! Saya siap membantu Anda mulai dari survei lokasi, konsultasi kelengkapan berkas KPR subsidi maupun komersil, hingga serah terima kunci secara ramah, cepat, dan transparan.&quot;
+              </p>
+              <div style='display:flex; gap:12px; flex-wrap:wrap;'>
+                <a class='btn btn-primary' href='https://wa.me/6281234567890?text=Halo%20Mbak%20Siti%2C%20saya%20ingin%20konsultasi%20KPR%20perumahan.' target='_blank'>
+                  💬 Chat WhatsApp Langsung (0812-3456-7890)
+                </a>
+                <a class='btn btn-outline' href='#lokasi'>
+                  📍 Jadwalkan Survei Lokasi
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1489,53 +1572,68 @@
           <b:widget id='HTML17' locked='false' title='Daftar FAQ Accordion' type='HTML'>
             <b:includable id='main'>
               <b:if cond='data:content'>
-                <data:content/>
-              <b:else/>
-                <div class='faq-wrap'>
-                  <div class='faq-item active'>
-                    <div class='faq-question'>
-                      <span>Apakah angsuran KPR bersifat Flat?</span>
-                      <span class='faq-icon'>▼</span>
-                    </div>
-                    <div class='faq-answer'>
-                      Ya, untuk perumahan subsidi cicilan flat sampai lunas dengan suku bunga 5% per tahun. Untuk unit komersil mengikuti ketentuan suku bunga promo bank rekanan.
-                    </div>
-                  </div>
-
-                  <div class='faq-item'>
-                    <div class='faq-question'>
-                      <span>Saya usia 21 tahun, apakah sudah bisa mengambil rumah?</span>
-                      <span class='faq-icon'>▼</span>
-                    </div>
-                    <div class='faq-answer'>
-                      Tentu bisa! Batasan usia pengajuan KPR subsidi adalah 21 sampai 45 tahun saat akad berlangsung.
-                    </div>
-                  </div>
-
-                  <div class='faq-item'>
-                    <div class='faq-question'>
-                      <span>Saya karyawan kontrak, apa syarat untuk lolos pengajuan?</span>
-                      <span class='faq-icon'>▼</span>
-                    </div>
-                    <div class='faq-answer'>
-                      Karyawan kontrak minimal masa kerja telah berjalan 2–3 tahun dengan riwayat payroll dan catatan kredit (BI Checking/SLIK) bersih.
-                    </div>
-                  </div>
-
-                  <div class='faq-item'>
-                    <div class='faq-question'>
-                      <span>Bagaimana status legalitas sertifikat perumahan ini?</span>
-                      <span class='faq-icon'>▼</span>
-                    </div>
-                    <div class='faq-answer'>
-                      Legalitas lengkap dan aman 100%. PBG/IMB sudah disahkan Pemda dan sertifikat tanah sudah pecah per kavling.
-                    </div>
-                  </div>
+                <div class='custom-widget-content'>
+                  <data:content/>
                 </div>
               </b:if>
             </b:includable>
           </b:widget>
         </b:section>
+
+        <!-- Dummy Data FAQ Accordion -->
+        <div class='default-fallback' id='fallback-faq'>
+          <div class='faq-wrap'>
+            <div class='faq-item active'>
+              <div class='faq-question'>
+                <span>Apakah angsuran KPR subsidi bersifat Flat (tetap)?</span>
+                <span class='faq-icon'>▼</span>
+              </div>
+              <div class='faq-answer'>
+                Ya, untuk perumahan subsidi FLPP cicilan flat (tetap) dari bulan pertama sampai lunas dengan suku bunga 5% per tahun. Untuk unit komersil mengikuti ketentuan suku bunga promo bank rekanan.
+              </div>
+            </div>
+
+            <div class='faq-item'>
+              <div class='faq-question'>
+                <span>Saya usia 21 tahun, apakah sudah bisa mengambil rumah?</span>
+                <span class='faq-icon'>▼</span>
+              </div>
+              <div class='faq-answer'>
+                Tentu bisa! Batasan usia pengajuan KPR subsidi adalah minimal 21 tahun (atau sudah menikah) dan maksimal 45-50 tahun saat akad kredit berlangsung.
+              </div>
+            </div>
+
+            <div class='faq-item'>
+              <div class='faq-question'>
+                <span>Saya karyawan kontrak atau wiraswasta, apa syarat pengajuan?</span>
+                <span class='faq-icon'>▼</span>
+              </div>
+              <div class='faq-answer'>
+                Karyawan kontrak minimal masa kerja telah berjalan 2 tahun dengan slip gaji dan mutasi rekening. Untuk wiraswasta melampirkan SKU (Surat Keterangan Usaha) dan catatan keuangan mutasi 6 bulan terakhir.
+              </div>
+            </div>
+
+            <div class='faq-item'>
+              <div class='faq-question'>
+                <span>Bagaimana status legalitas sertifikat perumahan ini?</span>
+                <span class='faq-icon'>▼</span>
+              </div>
+              <div class='faq-answer'>
+                Legalitas lengkap dan aman 100%. PBG/IMB sudah disahkan oleh Pemda, sertifikat tanah sudah pecah per kavling dan siap ditingkatkan menjadi SHM (Sertifikat Hak Milik).
+              </div>
+            </div>
+
+            <div class='faq-item'>
+              <div class='faq-question'>
+                <span>Kapan serah terima kunci (STK) unit dilakukan?</span>
+                <span class='faq-icon'>▼</span>
+              </div>
+              <div class='faq-answer'>
+                Untuk unit ready stock serah terima kunci dapat dilakukan langsung setelah akad kredit bank selesai. Untuk unit indent estimasi waktu serah terima adalah 3 hingga 6 bulan.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1552,49 +1650,54 @@
           <b:widget id='HTML18' locked='false' title='Daftar Ulasan &amp; Rating' type='HTML'>
             <b:includable id='main'>
               <b:if cond='data:content'>
-                <data:content/>
-              <b:else/>
-                <div class='testi-grid'>
-                  <div class='testi-card'>
-                    <div class='testi-stars'>★★★★★</div>
-                    <p class='testi-text'>&quot;Alhamdulillah proses KPR subsidi dibantu dari awal sampai akad tanpa dipersulit. Lingkungannya asri, tetangga ramah, dan air sumurnya jernih sekali.&quot;</p>
-                    <div class='testi-user'>
-                      <img alt='Bpk. Hendra' class='testi-avatar' src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                      <div>
-                        <div class='testi-name'>Hendra Pratama</div>
-                        <div class='testi-unit'>Penghuni Blok B-12 (Type 30/60)</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class='testi-card'>
-                    <div class='testi-stars'>★★★★★</div>
-                    <p class='testi-text'>&quot;Paling puas sama spesifikasi rumah komersilnya. Dindingnya double bata merah jadi kedap dan sejuk. Akses ke pintu tol beneran cuma 5 menit.&quot;</p>
-                    <div class='testi-user'>
-                      <img alt='Ibu Dewi' class='testi-avatar' src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                      <div>
-                        <div class='testi-name'>Dewi Kartika</div>
-                        <div class='testi-unit'>Penghuni Blok A-03 (Type 45/72)</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class='testi-card'>
-                    <div class='testi-stars'>★★★★★</div>
-                    <p class='testi-text'>&quot;Tim salesnya responsif banget menjawab segala pertanyaan saya dan istri. Sekarang anak-anak bisa bebas main di taman cluster yang ada keamanan 24 jam.&quot;</p>
-                    <div class='testi-user'>
-                      <img alt='Bpk. Reza' class='testi-avatar' src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                      <div>
-                        <div class='testi-name'>Reza Firmansyah</div>
-                        <div class='testi-unit'>Penghuni Blok C-21 (Type 30/60)</div>
-                      </div>
-                    </div>
-                  </div>
+                <div class='custom-widget-content'>
+                  <data:content/>
                 </div>
               </b:if>
             </b:includable>
           </b:widget>
         </b:section>
+
+        <!-- Dummy Data Testimoni Konsumen -->
+        <div class='default-fallback' id='fallback-testimoni'>
+          <div class='testi-grid'>
+            <div class='testi-card'>
+              <div class='testi-stars'>⭐⭐⭐⭐⭐</div>
+              <p class='testi-text'>&quot;Alhamdulillah proses pemberkasan dibantu mbak Siti dari awal sampai serah terima kunci. Lokasinya strategis banget, dekat jalan raya utama dan bebas banjir.&quot;</p>
+              <div class='testi-user'>
+                <img alt='Bpk. Hendra' class='testi-avatar' src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&amp;auto=format&amp;fit=crop&amp;q=80'/>
+                <div>
+                  <div class='testi-name'>Bpk. Hendra &amp; Istri</div>
+                  <div class='testi-unit'>Penghuni Blok C1 No. 12 (Subsidi 30/60)</div>
+                </div>
+              </div>
+            </div>
+
+            <div class='testi-card'>
+              <div class='testi-stars'>⭐⭐⭐⭐⭐</div>
+              <p class='testi-text'>&quot;Rumahnya double dinding beneran kokoh dan kedap suara. Halaman belakangnya luas jadi gampang waktu bikin dapur. Tetangga-tetangga juga ramah dan guyub.&quot;</p>
+              <div class='testi-user'>
+                <img alt='Ibu Linda' class='testi-avatar' src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&amp;auto=format&amp;fit=crop&amp;q=80'/>
+                <div>
+                  <div class='testi-name'>Ibu Linda Paramita</div>
+                  <div class='testi-unit'>Penghuni Blok A3 No. 05 (Hook 30/90)</div>
+                </div>
+              </div>
+            </div>
+
+            <div class='testi-card'>
+              <div class='testi-stars'>⭐⭐⭐⭐⭐</div>
+              <p class='testi-text'>&quot;Cicilannya flat dan ringan banget, sangat aman buat rencana keuangan masa depan anak-anak. Terima kasih Pesona Group atas pelayanannya yang luar biasa!&quot;</p>
+              <div class='testi-user'>
+                <img alt='Mas Dimas' class='testi-avatar' src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&amp;auto=format&amp;fit=crop&amp;q=80'/>
+                <div>
+                  <div class='testi-name'>Mas Dimas Prasetyo</div>
+                  <div class='testi-unit'>Penghuni Blok D2 No. 08 (Komersil 36/60)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1611,32 +1714,37 @@
           <b:widget id='HTML19' locked='false' title='Alamat &amp; Peta' type='HTML'>
             <b:includable id='main'>
               <b:if cond='data:content'>
-                <data:content/>
-              <b:else/>
-                <div class='location-grid'>
-                  <div class='location-card'>
-                    <h3 style='font-size:1.4rem; font-weight:800; margin-bottom:16px;'>Kantor Pemasaran Pusat</h3>
-                    <p style='color:var(--text-muted); margin-bottom:20px; line-height:1.7;'>
-                      Jl. Raya Pesona Hijau No. 88, Kawasan Harmoni Cluster, Karawang Barat, Jawa Barat 41361.
-                    </p>
-                    <div style='display:flex; flex-direction:column; gap:12px; margin-bottom:24px;'>
-                      <div><strong>🕒 Jam Operasional:</strong> Senin - Minggu (08.30 - 17.30 WIB)</div>
-                      <div><strong>📞 Telepon Kantor:</strong> (0267) 845-6789</div>
-                      <div><strong>💬 Layanan WhatsApp:</strong> 0812-3456-7890</div>
-                    </div>
-                    <a class='btn btn-primary' href='https://maps.google.com' target='_blank'>
-                      📍 Buka di Google Maps
-                    </a>
-                  </div>
-
-                  <div class='map-wrap'>
-                    <iframe allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade' src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126895.59005919427!2d107.24072873117562!3d-6.330887146522538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e697793d56efb9b%3A0x301e8f1fc28b870!2sKarawang%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid'></iframe>
-                  </div>
+                <div class='custom-widget-content'>
+                  <data:content/>
                 </div>
               </b:if>
             </b:includable>
           </b:widget>
         </b:section>
+
+        <!-- Dummy Data Lokasi & Peta -->
+        <div class='default-fallback' id='fallback-lokasi'>
+          <div class='location-grid'>
+            <div class='location-card'>
+              <h3 style='font-size:1.4rem; font-weight:800; margin-bottom:16px;'>Kantor Pemasaran Pusat</h3>
+              <p style='color:var(--text-muted); margin-bottom:20px; line-height:1.7;'>
+                Jl. Raya Pesona Hijau No. 88, Kawasan Harmoni Cluster, Karawang Barat, Jawa Barat 41361.
+              </p>
+              <div style='display:flex; flex-direction:column; gap:12px; margin-bottom:24px;'>
+                <div><strong>🕒 Jam Operasional:</strong> Senin - Minggu (08.30 - 17.30 WIB)</div>
+                <div><strong>📞 Telepon Kantor:</strong> (0267) 845-6789</div>
+                <div><strong>💬 Layanan WhatsApp:</strong> 0812-3456-7890</div>
+              </div>
+              <a class='btn btn-primary' href='https://maps.google.com' target='_blank'>
+                📍 Buka di Google Maps
+              </a>
+            </div>
+
+            <div class='map-wrap'>
+              <iframe allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade' src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126895.59005919427!2d107.24072873117562!3d-6.330887146522538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e697793d56efb9b%3A0x301e8f1fc28b870!2sKarawang%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid'></iframe>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1663,24 +1771,34 @@
                     <a class='btn btn-outline btn-sm' expr:href='data:post.url'>Baca Artikel &#8594;</a>
                   </article>
                 </b:loop>
-                <b:if cond='data:posts.empty'>
-                  <article class='testi-card'>
-                    <div style='font-size:0.8rem; color:var(--text-muted);'>Update KPR</div>
-                    <h3 style='font-size:1.2rem; font-weight:800; margin:8px 0;'>Panduan Lengkap Syarat KPR Subsidi Terbaru</h3>
-                    <p class='testi-text'>Dokumen apa saja yang perlu disiapkan agar pengajuan KPR langsung lolos verifikasi bank tanpa kendala.</p>
-                    <a class='btn btn-outline btn-sm' href='#marketing'>Pelajari KPR &#8594;</a>
-                  </article>
-                  <article class='testi-card'>
-                    <div style='font-size:0.8rem; color:var(--text-muted);'>Tips Interior</div>
-                    <h3 style='font-size:1.2rem; font-weight:800; margin:8px 0;'>5 Ide Desain Ruang Tamu Type 30/60 Nyaman</h3>
-                    <p class='testi-text'>Penggunaan warna pastel dan furniture multifungsi untuk memaksimalkan ruangan agar terasa luas.</p>
-                    <a class='btn btn-outline btn-sm' href='#marketing'>Pelajari Tips &#8594;</a>
-                  </article>
-                </b:if>
               </div>
             </b:includable>
           </b:widget>
         </b:section>
+
+        <!-- Dummy Data Blog Posts jika blog belum memiliki postingan -->
+        <div class='default-fallback' id='fallback-blog'>
+          <div class='testi-grid'>
+            <article class='testi-card'>
+              <div style='font-size:0.8rem; color:var(--text-muted);'>Update KPR</div>
+              <h3 style='font-size:1.2rem; font-weight:800; margin:8px 0;'>Panduan Lengkap Syarat KPR Subsidi 2026</h3>
+              <p class='testi-text'>Dokumen apa saja yang perlu disiapkan agar pengajuan KPR rumah subsidi langsung lolos verifikasi bank tanpa kendala.</p>
+              <a class='btn btn-outline btn-sm' href='#marketing'>Pelajari KPR &#8594;</a>
+            </article>
+            <article class='testi-card'>
+              <div style='font-size:0.8rem; color:var(--text-muted);'>Tips Interior</div>
+              <h3 style='font-size:1.2rem; font-weight:800; margin:8px 0;'>5 Ide Desain Ruang Tamu Type 30/60 Nyaman</h3>
+              <p class='testi-text'>Penggunaan warna pastel dan perabotan multifungsi untuk memaksimalkan ruangan agar terasa sejuk dan lega.</p>
+              <a class='btn btn-outline btn-sm' href='#marketing'>Pelajari Tips &#8594;</a>
+            </article>
+            <article class='testi-card'>
+              <div style='font-size:0.8rem; color:var(--text-muted);'>Legalitas</div>
+              <h3 style='font-size:1.2rem; font-weight:800; margin:8px 0;'>Perbedaan SHGB dan SHM Pada Perumahan Baru</h3>
+              <p class='testi-text'>Kenali status hak tanah perumahan dan tahapan mudah meningkatkan SHGB menjadi Sertifikat Hak Milik resmi.</p>
+              <a class='btn btn-outline btn-sm' href='#marketing'>Pelajari Legalitas &#8594;</a>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -1694,14 +1812,20 @@
             <b:widget id='HTML20' locked='false' title='Tentang Perumahan di Footer' type='HTML'>
               <b:includable id='main'>
                 <b:if cond='data:content'>
-                  <data:content/>
-                <b:else/>
-                  <h3>🏠 Pesona Green Residence</h3>
-                  <p>Kawasan hunian terpadu ramah lingkungan yang menghadirkan rumah subsidi berkualitas dan klaster komersil modern dengan skema pembiayaan mudah dan amanah.</p>
+                  <div class='custom-widget-content'>
+                    <data:content/>
+                  </div>
                 </b:if>
               </b:includable>
             </b:widget>
           </b:section>
+
+          <!-- Dummy Footer Brand Fallback -->
+          <div class='default-fallback' id='fallback-footer-brand'>
+            <h3>🏠 Pesona Green Residence</h3>
+            <p>Kawasan hunian terpadu ramah lingkungan yang menghadirkan rumah subsidi berkualitas dan klaster komersil modern dengan skema pembiayaan mudah dan amanah.</p>
+          </div>
+
           <div class='social-icons'>
             <a aria-label='Instagram' class='social-icon' href='https://instagram.com' target='_blank'>📷</a>
             <a aria-label='Facebook' class='social-icon' href='https://facebook.com' target='_blank'>📘</a>
@@ -1743,40 +1867,44 @@
     <b:widget id='HTML21' locked='false' title='Pengaturan Chat &amp; Nomor WA' type='HTML'>
       <b:includable id='main'>
         <b:if cond='data:content'>
-          <data:content/>
-        <b:else/>
-          <div class='floating-chat-container'>
-            <div class='floating-chat-box' id='floating-chat-box'>
-              <div class='chat-box-header'>
-                <img alt='Marketing Online' class='chat-header-avatar' src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                <div class='chat-header-info'>
-                  <h4>Siti - Sales Advisor</h4>
-                  <small>Online | Siap Membantu</small>
-                </div>
-              </div>
-              <div class='chat-box-body'>
-                <div class='chat-bubble'>
-                  Halo! Butuh simulasi angsuran, info promo diskon DP, atau jadwal survei lokasi perumahan hari ini?
-                </div>
-                <form class='chat-form' id='quick-lead-form'>
-                  <input autocomplete='off' class='chat-input' id='quick-message-input' placeholder='Tulis pertanyaan Anda...' required='' type='text'/>
-                  <button aria-label='Kirim Pesan' class='chat-send-btn' type='submit'>
-                    ✈️
-                  </button>
-                </form>
-              </div>
-            </div>
-
-            <button class='floating-trigger-btn' id='floating-trigger-btn'>
-              <span>💬</span>
-              <span>Tanya Marketing</span>
-            </button>
+          <div class='custom-widget-content'>
+            <data:content/>
           </div>
         </b:if>
       </b:includable>
     </b:widget>
   </b:section>
 
+  <!-- Dummy Floating Chat Fallback -->
+  <div class='default-fallback' id='fallback-chat'>
+    <div class='floating-chat-container'>
+      <div class='floating-chat-box' id='floating-chat-box'>
+        <div class='chat-box-header'>
+          <img alt='Marketing Online' class='chat-header-avatar' src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&amp;auto=format&amp;fit=crop&amp;q=80'/>
+          <div class='chat-header-info'>
+            <h4>Siti - Sales Advisor</h4>
+            <small>Online | Siap Membantu</small>
+          </div>
+        </div>
+        <div class='chat-box-body'>
+          <div class='chat-bubble'>
+            Halo! Butuh simulasi angsuran, info promo diskon DP, atau jadwal survei lokasi perumahan hari ini?
+          </div>
+          <form class='chat-form' id='quick-lead-form'>
+            <input autocomplete='off' class='chat-input' id='quick-message-input' placeholder='Tulis pertanyaan Anda...' required='' type='text'/>
+            <button aria-label='Kirim Pesan' class='chat-send-btn' type='submit'>
+              ✈️
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <button class='floating-trigger-btn' id='floating-trigger-btn'>
+        <span>💬</span>
+        <span>Tanya Marketing</span>
+      </button>
+    </div>
+  </div>
   <!-- ================= THIRD-PARTY PLUGINS & JAVASCRIPT ================= -->
   <!-- FancyBox 5 JS for Gallery Lightbox -->
   <script src='https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js'></script>
@@ -1785,6 +1913,18 @@
 
   <script><![CDATA[
   document.addEventListener('DOMContentLoaded', function() {
+    // 0. Toggle Fallback vs Custom Widget Content
+    document.querySelectorAll('.section').forEach(function(sec) {
+      var custom = sec.querySelector('.custom-widget-content');
+      if (custom && custom.innerText.trim().length > 0) {
+        var parent = sec.closest('section') || sec.closest('footer') || sec.parentElement;
+        if (parent) {
+          var fallback = parent.querySelector('.default-fallback');
+          if (fallback) fallback.style.display = 'none';
+        }
+      }
+    });
+
     // 1. Inisialisasi Fancybox untuk Galeri
     if (typeof Fancybox !== 'undefined') {
       Fancybox.bind('[data-fancybox]', {});
@@ -1833,7 +1973,44 @@
       });
     });
 
-    // 5. Floating Chat Toggle
+    // 5. Modal Pop-up Detail Spesifikasi Unit
+    document.querySelectorAll('.btn-detail-unit').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var title = this.getAttribute('data-unit-title');
+        var price = this.getAttribute('data-unit-price');
+        var cicilan = this.getAttribute('data-unit-installment');
+        var specs = this.getAttribute('data-unit-specs');
+        var img = this.getAttribute('data-unit-img');
+        var waUrl = this.getAttribute('data-unit-wa');
+
+        Swal.fire({
+          title: '<strong>' + title + '</strong>',
+          html: 
+            '<div style="text-align:left; font-size:0.95rem; line-height:1.6;">' +
+              '<img src="' + img + '" style="width:100%; height:200px; object-fit:cover; border-radius:12px; margin-bottom:14px;"/>' +
+              '<div style="font-size:1.3rem; font-weight:800; color:#059669; margin-bottom:4px;">' + price + '</div>' +
+              '<div style="font-size:0.85rem; color:#64748b; margin-bottom:14px;">Angsuran: ' + cicilan + '</div>' +
+              '<div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:12px 14px; margin-bottom:16px;">' +
+                '<div style="font-weight:700; margin-bottom:6px; color:#0f172a;">Spesifikasi Lengkap:</div>' +
+                specs +
+              '</div>' +
+            '</div>',
+          showCloseButton: true,
+          showCancelButton: true,
+          focusConfirm: false,
+          confirmButtonText: '💬 Pesan / Cek Unit via WhatsApp',
+          cancelButtonText: 'Tutup',
+          confirmButtonColor: '#10b981',
+          cancelButtonColor: '#94a3b8'
+        }).then(function(res) {
+          if (res.isConfirmed && waUrl) {
+            window.open(waUrl, '_blank');
+          }
+        });
+      });
+    });
+
+    // 6. Floating Chat Toggle
     const triggerBtn = document.getElementById('floating-trigger-btn');
     const chatBox = document.getElementById('floating-chat-box');
     if (triggerBtn && chatBox) {
@@ -1848,7 +2025,7 @@
       });
     }
 
-    // 6. SweetAlert2 Lead Capture + WhatsApp Form
+    // 7. SweetAlert2 Lead Capture + WhatsApp Form
     const leadForm = document.getElementById('quick-lead-form');
     if (leadForm) {
       leadForm.addEventListener('submit', function(e) {
