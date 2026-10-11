@@ -83,6 +83,14 @@ Saat Anda membuka menu **Tata Letak (Layout)** di Blogger, Anda akan melihat blo
 - Klik tombol **Bagikan (Share)** -> Pilih tab **Sematkan peta (Embed a map)** -> Salin kode HTML iframe.
 - Buka widget **[10] Lokasi & Google Maps** di Blogger -> Tempelkan (paste) kode iframe ke kolom **Konten** -> Simpan.
 
-### 3. Mengganti Logo Perumahan (`[1]`)
-- Buka widget **[1] Header Logo Perumahan** -> Unggah gambar logo perumahan Anda dari komputer -> Pilih opsi *"Di belakang judul dan keterangan"* atau *"Selain judul dan keterangan"* -> Simpan.
+### 4. Fitur Pop-up Detail Unit & Galeri
+- Setiap kartu rumah di bagian `[4] Listing Tipe Rumah` kini dilengkapi tombol **🔍 Detail Unit**. Saat diklik, akan muncul jendela pop-up interaktif (SweetAlert2) yang menampilkan denah, rincian spesifikasi teknis, harga, cicilan, dan tombol chat WhatsApp pemesanan langsung.
+
+---
+
+## 🛡️ Jaminan Tampilan (Zero Blank Page)
+Template menggunakan arsitektur **Dual-Fallback System**:
+- Begitu tema di-upload ke Blogger, **semua data dummy (Hero, 5 Keunggulan, 4 Tipe Rumah, Tabel KPR, Galeri, Profil Marketing, FAQ, Testimoni, Maps, dan WhatsApp) langsung muncul 100% lengkap dan aktif**.
+- Pengguna tidak perlu khawatir halaman kosong atau rusak jika belum sempat mengedit widget di menu Tata Letak.
+
 
