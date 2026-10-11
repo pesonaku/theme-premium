@@ -26,13 +26,18 @@
   <link crossorigin='' href='https://fonts.gstatic.com' rel='preconnect'/>
   <link href='https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap' rel='stylesheet'/>
 
+  <!-- FancyBox 5 CSS for Lightbox & Popups -->
+  <link href='https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css' rel='stylesheet'/>
+  <!-- SweetAlert2 CSS -->
+  <link href='https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css' rel='stylesheet'/>
+
   <b:skin version='1.3.0'><![CDATA[
   /*
   -----------------------------------------------
-  Theme Name   : Pesona Green Residence - Premium Blogger Theme
-  Version      : 1.0.0
+  Theme Name   : Pesona Green Residence - Modular Blogger Landing Page
+  Version      : 2.0.0
   Author       : Pesonaku
-  Design Style : Light Green, Modern, Luxury & High Conversion Real Estate Landing Page
+  Design Style : Light Green & Emerald, High-Conversion Real Estate Layout
   -----------------------------------------------
   <Variable name="primaryColor" description="Warna Utama (Emerald)" type="color" default="#10b981" value="#10b981"/>
   <Variable name="primaryDark" description="Warna Utama Gelap" type="color" default="#059669" value="#059669"/>
@@ -150,7 +155,7 @@
     gap: 10px;
     font-weight: 700;
     font-size: 0.95rem;
-    padding: 14px 28px;
+    padding: 13px 26px;
     border-radius: var(--radius-full);
     border: none;
     cursor: pointer;
@@ -160,12 +165,12 @@
   .btn-primary {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: #ffffff !important;
-    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.28);
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 15px 25px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 15px 25px rgba(16, 185, 129, 0.38);
     filter: brightness(1.05);
   }
 
@@ -192,10 +197,10 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.94);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.85);
     transition: all 0.3s ease;
   }
 
@@ -231,7 +236,7 @@
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 28px;
     list-style: none;
   }
 
@@ -252,8 +257,8 @@
   }
 
   .nav-profile-pic {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     border: 2px solid var(--primary);
     object-fit: cover;
@@ -268,422 +273,289 @@
     color: var(--text-dark);
   }
 
-  /* HERO BANNER & SLIDER */
+  /* HERO BANNER COVER */
   .hero-section {
     position: relative;
-    padding-top: 130px;
+    padding-top: 120px;
     padding-bottom: 70px;
     background: radial-gradient(circle at 10% 20%, rgba(236, 253, 245, 0.8) 0%, rgba(248, 250, 252, 1) 70%);
-    overflow: hidden;
   }
 
-  .hero-grid {
+  .hero-banners-grid {
     display: grid;
-    grid-template-columns: 1fr 1.05fr;
-    gap: 50px;
-    align-items: center;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 30px;
+    align-items: stretch;
   }
 
-  .hero-headline {
-    font-size: 3.1rem;
-    font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: -0.03em;
-    color: var(--text-dark);
-    margin-bottom: 20px;
-  }
-
-  .hero-headline span {
-    color: var(--primary);
-    position: relative;
-  }
-
-  .hero-desc {
-    font-size: 1.15rem;
-    color: var(--text-muted);
-    margin-bottom: 32px;
-    line-height: 1.7;
-  }
-
-  .hero-btns {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-bottom: 36px;
-  }
-
-  .hero-slider-wrap {
+  .hero-main-card {
     position: relative;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.25);
-    background: #000;
+    min-height: 440px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px;
+    box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.22);
   }
 
-  .hero-slides {
-    position: relative;
-    width: 100%;
-    height: 440px;
-  }
-
-  .hero-slide {
+  .hero-main-bg {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.8s ease, visibility 0.8s ease;
+    object-fit: cover;
+    z-index: 1;
   }
 
-  .hero-slide.active {
-    opacity: 1;
-    visibility: visible;
+  .hero-main-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.4) 60%, transparent 100%);
+    z-index: 2;
   }
 
-  .hero-slide img {
+  .hero-main-content {
+    position: relative;
+    z-index: 3;
+    color: #ffffff;
+  }
+
+  .hero-main-content h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 14px;
+  }
+
+  .hero-main-content p {
+    font-size: 1.05rem;
+    color: #e2e8f0;
+    margin-bottom: 24px;
+    max-width: 600px;
+  }
+
+  .hero-side-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid #e2e8f0;
+    box-shadow: var(--shadow-soft);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-side-card figure {
+    height: 200px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .hero-side-card figure img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .hero-slide-badge {
-    position: absolute;
-    bottom: 24px;
-    left: 24px;
-    right: 24px;
-    background: rgba(15, 23, 42, 0.75);
-    backdrop-filter: blur(8px);
-    color: #fff;
-    padding: 14px 20px;
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+  .hero-side-card h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 10px;
   }
 
-  .hero-slide-badge h4 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #fff;
+  .hero-side-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    line-height: 1.6;
   }
 
-  .hero-slide-badge p {
-    font-size: 0.85rem;
-    color: #cbd5e1;
-  }
-
-  .slider-nav {
-    position: absolute;
-    bottom: 24px;
-    right: 30px;
-    display: flex;
-    gap: 8px;
-    z-index: 10;
-  }
-
-  .slider-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.4);
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .slider-dot.active {
-    width: 28px;
-    border-radius: 6px;
-    background: var(--primary);
-  }
-
-  /* KEUNGGULAN (USP) */
-  .features-grid {
+  /* MODULAR ABOUT / KEUNGGULAN SECTION */
+  .about-modular-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 24px;
   }
 
-  .feature-card {
+  .about-modular-item {
     background: var(--bg-card);
     border-radius: var(--radius-md);
-    padding: 28px 24px;
+    padding: 24px;
     border: 1px solid #e2e8f0;
     box-shadow: var(--shadow-soft);
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 16px;
   }
 
-  .feature-card:hover {
+  .about-modular-item:hover {
     transform: translateY(-5px);
     border-color: var(--primary);
     box-shadow: var(--shadow-hover);
   }
 
-  .feature-icon-box {
-    width: 52px;
-    height: 52px;
-    border-radius: 12px;
-    background: var(--primary-light);
-    color: var(--primary-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
+  .about-modular-thumb {
+    width: 100%;
+    height: 150px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
   }
 
-  .feature-card h3 {
-    font-size: 1.15rem;
-    font-weight: 700;
+  .about-modular-item h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
     color: var(--text-dark);
   }
 
-  .feature-card p {
+  .about-modular-item p {
     font-size: 0.9rem;
     color: var(--text-muted);
+    line-height: 1.6;
   }
 
-  /* LISTING TIPE RUMAH */
-  .listing-filter-wrap {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 40px;
-  }
-
-  .filter-btn {
-    padding: 10px 24px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    border-radius: var(--radius-full);
-    border: 1px solid #e2e8f0;
-    background: #fff;
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: all 0.25s ease;
-  }
-
-  .filter-btn.active, .filter-btn:hover {
-    background: var(--primary);
-    color: #fff;
-    border-color: var(--primary);
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
-  }
-
-  .listing-grid {
+  /* MODULAR SERVICE / TYPE RUMAH SECTION */
+  .service-modular-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+    gap: 28px;
   }
 
-  .property-card {
+  .service-modular-card {
     background: var(--bg-card);
     border-radius: var(--radius-lg);
-    overflow: hidden;
     border: 1px solid #e2e8f0;
     box-shadow: var(--shadow-soft);
-    transition: all 0.3s ease;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition: all 0.3s ease;
   }
 
-  .property-card:hover {
+  .service-modular-card:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-hover);
     border-color: rgba(16, 185, 129, 0.4);
   }
 
-  .property-thumb-wrap {
-    position: relative;
-    height: 230px;
-    overflow: hidden;
-  }
-
-  .property-thumb-wrap img {
+  .service-modular-thumb {
     width: 100%;
-    height: 100%;
+    height: 220px;
     object-fit: cover;
-    transition: transform 0.5s ease;
   }
 
-  .property-card:hover .property-thumb-wrap img {
-    transform: scale(1.05);
-  }
-
-  .property-badge {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    padding: 5px 14px;
-    border-radius: var(--radius-full);
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  .badge-subsidi {
-    background: #10b981;
-    color: #fff;
-  }
-
-  .badge-komersil {
-    background: #0284c7;
-    color: #fff;
-  }
-
-  .property-body {
+  .service-modular-body {
     padding: 24px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
   }
 
-  .property-title {
-    font-size: 1.35rem;
+  .service-modular-body h3 {
+    font-size: 1.3rem;
     font-weight: 800;
     color: var(--text-dark);
+    margin-bottom: 10px;
+  }
+
+  .service-modular-body p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  /* OFFER PRICING TABLE (SEPERTI PESONAKAHURIPAN.ORG) */
+  .pricing-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .pricing-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 2px solid #e2e8f0;
+    padding: 36px 30px;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pricing-card.featured {
+    border-color: var(--primary);
+    box-shadow: 0 20px 35px -10px rgba(16, 185, 129, 0.25);
+  }
+
+  .pricing-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: #fff;
+    padding: 4px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .pricing-card h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+  }
+
+  .pricing-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-dark);
     margin-bottom: 6px;
   }
 
-  .property-price {
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: var(--primary-dark);
-    margin-bottom: 4px;
-  }
-
-  .property-installment {
-    font-size: 0.85rem;
+  .pricing-subtitle {
+    font-size: 0.9rem;
     color: var(--text-muted);
-    margin-bottom: 18px;
-  }
-
-  .property-specs-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    padding: 14px 0;
-    border-top: 1px dashed #e2e8f0;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
     border-bottom: 1px dashed #e2e8f0;
-    margin-bottom: 20px;
-    text-align: center;
   }
 
-  .spec-item {
+  .pricing-features {
+    list-style: none;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 4px;
+    gap: 12px;
+    margin-bottom: 30px;
   }
 
-  .spec-icon {
-    font-size: 1.1rem;
+  .pricing-features li {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .pricing-features li strong {
     color: var(--primary-dark);
   }
 
-  .spec-label {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    font-weight: 600;
-  }
-
-  .property-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: auto;
-  }
-
-  /* MODAL DETAIL POPUP */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(15, 23, 42, 0.75);
-    backdrop-filter: blur(5px);
-    z-index: 2000;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-  }
-
-  .modal-overlay.active {
-    display: flex;
-  }
-
-  .modal-box {
-    background: #fff;
-    border-radius: var(--radius-lg);
-    max-width: 800px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    padding: 32px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  }
-
-  .modal-close-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: #f1f5f9;
-    border: none;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-dark);
-  }
-
-  .modal-gallery-main {
-    width: 100%;
-    height: 320px;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    margin-bottom: 12px;
-  }
-
-  .modal-gallery-main img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .modal-thumbs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 24px;
-    overflow-x: auto;
-  }
-
-  .modal-thumb {
-    width: 80px;
-    height: 60px;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    border: 2px solid transparent;
-    object-fit: cover;
-  }
-
-  .modal-thumb.active {
-    border-color: var(--primary);
-  }
-
-  /* GALERI AKTIVITAS */
+  /* GALLERY GRID WITH FANCYBOX */
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 16px;
+    gap: 18px;
   }
 
   .gallery-item {
@@ -691,7 +563,7 @@
     height: 220px;
     border-radius: var(--radius-md);
     overflow: hidden;
-    cursor: pointer;
+    box-shadow: var(--shadow-soft);
   }
 
   .gallery-item img {
@@ -721,51 +593,8 @@
     opacity: 1;
   }
 
-  /* MARKETING PROFILE */
-  .marketing-card {
-    background: linear-gradient(135deg, #ffffff 0%, var(--primary-light) 100%);
-    border-radius: var(--radius-lg);
-    padding: 40px;
-    border: 1px solid rgba(16, 185, 129, 0.2);
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 40px;
-    align-items: center;
-    box-shadow: var(--shadow-soft);
-  }
-
-  .marketing-photo {
-    width: 190px;
-    height: 190px;
-    border-radius: var(--radius-lg);
-    object-fit: cover;
-    border: 4px solid #fff;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-  }
-
-  .marketing-info h3 {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--text-dark);
-    margin-bottom: 6px;
-  }
-
-  .marketing-role {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--primary-dark);
-    margin-bottom: 14px;
-  }
-
-  .marketing-bio {
-    font-size: 1rem;
-    color: var(--text-muted);
-    margin-bottom: 24px;
-    line-height: 1.7;
-  }
-
-  /* FAQ ACCORDION */
-  .faq-wrap {
+  /* MODULAR FAQ ACCORDION */
+  .faq-accordion-wrap {
     max-width: 820px;
     margin: 0 auto;
     display: flex;
@@ -773,7 +602,7 @@
     gap: 16px;
   }
 
-  .faq-item {
+  .faq-accordion-item {
     background: var(--bg-card);
     border: 1px solid #e2e8f0;
     border-radius: var(--radius-md);
@@ -781,11 +610,11 @@
     transition: border-color 0.25s ease;
   }
 
-  .faq-item.active {
+  .faq-accordion-item.active {
     border-color: var(--primary);
   }
 
-  .faq-question {
+  .faq-accordion-header {
     padding: 20px 24px;
     display: flex;
     justify-content: space-between;
@@ -797,16 +626,17 @@
     user-select: none;
   }
 
-  .faq-icon {
-    font-size: 1.25rem;
+  .faq-accordion-icon {
+    font-size: 1.1rem;
     transition: transform 0.3s ease;
+    color: var(--primary);
   }
 
-  .faq-item.active .faq-icon {
+  .faq-accordion-item.active .faq-accordion-icon {
     transform: rotate(180deg);
   }
 
-  .faq-answer {
+  .faq-accordion-body {
     padding: 0 24px;
     max-height: 0;
     overflow: hidden;
@@ -816,73 +646,77 @@
     line-height: 1.7;
   }
 
-  .faq-item.active .faq-answer {
+  .faq-accordion-item.active .faq-accordion-body {
     padding: 0 24px 22px 24px;
     max-height: 250px;
   }
 
-  /* TESTIMONI */
-  .testi-grid {
+  /* MODULAR REVIEW / TESTIMONI SECTION */
+  .review-modular-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 24px;
   }
 
-  .testi-card {
+  .review-modular-card {
     background: var(--bg-card);
     border-radius: var(--radius-md);
     padding: 28px;
     border: 1px solid #e2e8f0;
     box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
-  .testi-stars {
+  .review-stars {
     color: #f59e0b;
     font-size: 1.1rem;
-    margin-bottom: 14px;
   }
 
-  .testi-text {
+  .review-text {
     font-size: 0.95rem;
     color: var(--text-dark);
     line-height: 1.7;
-    margin-bottom: 20px;
     font-style: italic;
+    flex-grow: 1;
   }
 
-  .testi-user {
+  .review-author-wrap {
     display: flex;
     align-items: center;
     gap: 14px;
+    border-top: 1px dashed #e2e8f0;
+    padding-top: 14px;
   }
 
-  .testi-avatar {
+  .review-avatar {
     width: 48px;
     height: 48px;
     border-radius: 50%;
     object-fit: cover;
   }
 
-  .testi-name {
+  .review-name {
     font-weight: 700;
     font-size: 0.95rem;
     color: var(--text-dark);
   }
 
-  .testi-unit {
+  .review-unit {
     font-size: 0.8rem;
     color: var(--text-muted);
   }
 
-  /* LOKASI & PETA */
-  .location-grid {
+  /* KONTAK & LOKASI */
+  .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 36px;
     align-items: center;
   }
 
-  .location-card {
+  .contact-info-card {
     background: var(--bg-card);
     border-radius: var(--radius-lg);
     padding: 36px;
@@ -890,7 +724,7 @@
     box-shadow: var(--shadow-soft);
   }
 
-  .map-frame-wrap {
+  .map-wrap {
     height: 380px;
     border-radius: var(--radius-lg);
     overflow: hidden;
@@ -898,69 +732,13 @@
     border: 1px solid #e2e8f0;
   }
 
-  .map-frame-wrap iframe {
+  .map-wrap iframe {
     width: 100%;
     height: 100%;
     border: none;
   }
 
-  /* ARTIKEL & BLOG */
-  .articles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-  }
-
-  .article-card {
-    background: var(--bg-card);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    border: 1px solid #e2e8f0;
-    box-shadow: var(--shadow-soft);
-    transition: all 0.3s ease;
-  }
-
-  .article-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-  }
-
-  .article-thumb {
-    height: 200px;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  .article-body {
-    padding: 24px;
-  }
-
-  .article-date {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-  }
-
-  .article-title {
-    font-size: 1.2rem;
-    font-weight: 800;
-    margin-bottom: 10px;
-    line-height: 1.4;
-    color: var(--text-dark);
-  }
-
-  .article-title:hover {
-    color: var(--primary-dark);
-  }
-
-  .article-snippet {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 16px;
-  }
-
-  /* FOOTER */
+  /* FOOTER & SOSIAL MEDIA */
   .footer {
     background: #0f172a;
     color: #94a3b8;
@@ -1031,13 +809,133 @@
     font-size: 0.85rem;
   }
 
-  /* STICKY WHATSAPP BUTTON */
-  .sticky-wa-btn {
+  /* FLOATING INTERACTIVE CHAT (SEPERTI PESONAKAHURIPAN.ORG) */
+  .floating-chat-container {
     position: fixed;
-    bottom: 28px;
-    right: 28px;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .floating-chat-box {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.25);
+    border: 1px solid #e2e8f0;
+    width: 320px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    display: none;
+    animation: fadeInUp 0.3s ease;
+  }
+
+  .floating-chat-box.active {
+    display: block;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .chat-box-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #ffffff;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .chat-header-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    object-fit: cover;
+  }
+
+  .chat-header-info h4 {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .chat-header-info small {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    opacity: 0.9;
+  }
+
+  .chat-header-info small::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #4ade80;
+    border-radius: 50%;
+  }
+
+  .chat-box-body {
+    padding: 20px;
+    background: #f8fafc;
+  }
+
+  .chat-bubble {
+    background: #ffffff;
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    border: 1px solid #e2e8f0;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .chat-form {
+    display: flex;
+    gap: 8px;
+  }
+
+  .chat-input {
+    flex-grow: 1;
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    outline: none;
+    font-family: inherit;
+  }
+
+  .chat-input:focus {
+    border-color: var(--primary);
+  }
+
+  .chat-send-btn {
+    background: var(--primary);
+    color: #ffffff;
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .chat-send-btn:hover {
+    background: var(--primary-dark);
+  }
+
+  .floating-trigger-btn {
     background: #25d366;
-    color: #ffffff !important;
+    color: #ffffff;
     padding: 12px 22px;
     border-radius: var(--radius-full);
     display: flex;
@@ -1046,26 +944,20 @@
     font-weight: 700;
     font-size: 0.95rem;
     box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-    z-index: 999;
+    cursor: pointer;
+    border: none;
     transition: all 0.3s ease;
   }
 
-  .sticky-wa-btn:hover {
-    transform: translateY(-3px) scale(1.03);
+  .floating-trigger-btn:hover {
+    transform: translateY(-3px) scale(1.02);
     box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
   }
 
   /* RESPONSIVE DESIGN */
   @media (max-width: 992px) {
-    .hero-grid, .location-grid {
+    .hero-banners-grid, .contact-grid {
       grid-template-columns: 1fr;
-    }
-    .marketing-card {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-    .marketing-photo {
-      margin: 0 auto;
     }
     .footer-grid {
       grid-template-columns: 1fr 1fr;
@@ -1092,15 +984,8 @@
     .hamburger-btn {
       display: block;
     }
-    .hero-headline {
-      font-size: 2.3rem;
-    }
     .footer-grid {
       grid-template-columns: 1fr;
-    }
-    .property-specs-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
     }
   }
   ]]></b:skin>
@@ -1120,10 +1005,25 @@
 
 <body>
 
+  <!-- ================= 0. CONFIG SECTION ================= -->
+  <div style='display:none;'>
+    <b:section id='config' maxwidgets='1' name='Konfigurasi Global' showaddelement='yes'>
+      <b:widget id='HTML1' locked='false' title='Script &amp; Webhook Config' type='HTML'>
+        <b:includable id='main'>
+          <script><![CDATA[
+            // URL Web App Google Script untuk menangkap Lead Nama & WA (Opsional)
+            const $googleSheetScriptUrl = "";
+            const $marketingWhatsApp = "6281234567890";
+          ]]></script>
+        </b:includable>
+      </b:widget>
+    </b:section>
+  </div>
+
   <!-- ================= 1. HEADER & NAVBAR ================= -->
   <header class='navbar' id='main-navbar'>
     <div class='container nav-wrap'>
-      <b:section id='header-logo' maxwidgets='1' name='Header Logo' showaddelement='yes'>
+      <b:section id='header-section' maxwidgets='2' name='Header &amp; Logo' showaddelement='yes'>
         <b:widget id='Header1' locked='false' title='Logo Perumahan' type='Header'>
           <b:includable id='main'>
             <a class='nav-brand' expr:href='data:blog.homepageUrl'>
@@ -1132,22 +1032,28 @@
             </a>
           </b:includable>
         </b:widget>
+        <b:widget id='LinkList1' locked='false' title='Navigasi Menu' type='LinkList'>
+          <b:includable id='main'>
+            <ul class='nav-links' id='nav-menu'>
+              <b:loop values='data:links' var='link'>
+                <li><a class='nav-link' expr:href='data:link.target'><data:link.name/></a></li>
+              </b:loop>
+              <b:if cond='data:links.empty'>
+                <li><a class='nav-link' href='#keunggulan'>Keunggulan</a></li>
+                <li><a class='nav-link' href='#type-rumah'>Type Rumah</a></li>
+                <li><a class='nav-link' href='#harga'>Harga &amp; Promo</a></li>
+                <li><a class='nav-link' href='#galeri'>Galeri</a></li>
+                <li><a class='nav-link' href='#faq'>FAQ</a></li>
+                <li><a class='nav-link' href='#lokasi'>Lokasi</a></li>
+                <li><a class='nav-link' href='#kontak'>Kontak</a></li>
+              </b:if>
+            </ul>
+          </b:includable>
+        </b:widget>
       </b:section>
 
-      <!-- Smooth Scroll Nav Links -->
-      <ul class='nav-links' id='nav-menu'>
-        <li><a class='nav-link' href='#keunggulan'>Keunggulan</a></li>
-        <li><a class='nav-link' href='#type-rumah'>Type Rumah</a></li>
-        <li><a class='nav-link' href='#galeri'>Galeri</a></li>
-        <li><a class='nav-link' href='#faq'>FAQ</a></li>
-        <li><a class='nav-link' href='#lokasi'>Lokasi</a></li>
-        <li><a class='nav-link' href='#artikel'>Artikel</a></li>
-        <li><a class='nav-link' href='#kontak'>Kontak</a></li>
-      </ul>
-
       <div class='nav-actions'>
-        <!-- Profil Foto & Tombol Hubungi Kami -->
-        <a class='btn btn-primary btn-sm' href='#marketing'>
+        <a class='btn btn-primary btn-sm' href='#kontak'>
           <img alt='Marketing' class='nav-profile-pic' src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&amp;auto=format&amp;fit=crop&amp;q=80'/>
           <span>Hubungi Sales</span>
         </a>
@@ -1157,97 +1063,123 @@
   </header>
 
   <main>
-    <!-- ================= 2. HERO BANNER & SLIDER ================= -->
+    <!-- ================= 2. HERO COVER BANNER (MODULAR IMAGE WIDGETS) ================= -->
     <section class='hero-section' id='beranda'>
-      <div class='container hero-grid'>
-        <div class='hero-content'>
-          <div class='badge-pill'>✨ Hunian Asri &amp; Strategis</div>
-          <h1 class='hero-headline'>Wujudkan Rumah Impian Keluarga dengan <span>Cicilan Ringan</span></h1>
-          <p class='hero-desc'>Perumahan modern subsidi dan komersil dengan lingkungan nyaman, akses tol langsung, fasilitas lengkap, dan bebas banjir.</p>
-          <div class='hero-btns'>
-            <a class='btn btn-primary' href='#type-rumah'>Pilih Tipe Rumah</a>
-            <a class='btn btn-outline' href='#marketing'>Konsultasi KPR Gratis</a>
-          </div>
-        </div>
+      <div class='container'>
+        <b:section id='cover-section' maxwidgets='3' name='Hero Banner Utama' showaddelement='yes'>
+          <!-- Banner Utama 1 -->
+          <b:widget id='Image11' locked='false' title='Wujudkan Rumah Impian Anda' type='Image'>
+            <b:includable id='main'>
+              <div class='hero-banners-grid'>
+                <div class='hero-main-card'>
+                  <img alt='Hero Banner Utama' class='hero-main-bg' expr:src='data:sourceUrl'/>
+                  <div class='hero-main-overlay'></div>
+                  <div class='hero-main-content'>
+                    <div class='badge-pill'>✨ Grand Launching &amp; Promo</div>
+                    <h2><data:title/></h2>
+                    <p><data:caption/></p>
+                    <a class='btn btn-primary parsed-link' expr:href='data:link'>Pilih Tipe Rumah &#8594;</a>
+                  </div>
+                </div>
 
-        <!-- Hero Banner Slider Widget -->
-        <div class='hero-slider-wrap'>
-          <b:section id='hero-slider' maxwidgets='3' name='Hero Slider' showaddelement='yes'>
-            <b:widget id='HTML101' locked='false' title='Slider Promo Utama' type='HTML'>
-              <b:includable id='main'>
-                <div class='hero-slides' id='hero-slides-container'>
-                  <div class='hero-slide active'>
-                    <img alt='Promo Rumah 1' src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                    <div class='hero-slide-badge'>
-                      <h4>Promo Spesial DP 1% &amp; Bebas Biaya KPR</h4>
-                      <p>Cicilan terjangkau mulai Rp 1 Jutaan / bulan. Unit Terbatas!</p>
-                    </div>
-                  </div>
-                  <div class='hero-slide'>
-                    <img alt='Promo Rumah 2' src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1000&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                    <div class='hero-slide-badge'>
-                      <h4>Cluster Komersil Eksklusif Double Dinding</h4>
-                      <p>Desain minimalis modern dengan sirkulasi udara sejuk &amp; carport luas.</p>
-                    </div>
-                  </div>
-                  <div class='hero-slide'>
-                    <img alt='Promo Rumah 3' src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1000&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                    <div class='hero-slide-badge'>
-                      <h4>Fasilitas Lengkap &amp; Akses Super Cepat</h4>
-                      <p>Hanya 5 menit ke gerbang tol dan stasiun kereta.</p>
-                    </div>
-                  </div>
+                <!-- Card Sisi 2 (Sub-promo) -->
+                <div class='hero-side-card'>
+                  <figure>
+                    <img alt='Promo Subsidi' src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&amp;auto=format&amp;fit=crop&amp;q=80'/>
+                  </figure>
+                  <div class='badge-pill'>💰 DP 1% &amp; Bebas Biaya KPR</div>
+                  <h3>Rumah Subsidi &amp; Komersil Berkualitas</h3>
+                  <p>Kawasan hunian minimalis modern dengan lingkungan aman, asri, double dinding, dan akses transportasi mudah.</p>
+                  <a class='btn btn-outline btn-sm' href='#harga'>Lihat Simulasi Angsuran</a>
                 </div>
-                <div class='slider-nav' id='hero-dots'>
-                  <span class='slider-dot active' data-index='0'></span>
-                  <span class='slider-dot' data-index='1'></span>
-                  <span class='slider-dot' data-index='2'></span>
-                </div>
-              </b:includable>
-            </b:widget>
-          </b:section>
-        </div>
+              </div>
+            </b:includable>
+          </b:widget>
+        </b:section>
       </div>
     </section>
 
-    <!-- ================= 3. KEUNGGULAN (USP) ================= -->
+    <!-- ================= 3. ABOUT / KEUNGGULAN (MODULAR IMAGE WIDGETS) ================= -->
     <section class='section-pad' id='keunggulan'>
       <div class='container'>
         <div class='section-header'>
-          <div class='badge-pill'>Keunggulan Kami</div>
+          <div class='badge-pill'>Keunggulan Kawasan</div>
           <h2 class='section-title'>Mengapa Memilih Perumahan Kami?</h2>
-          <p class='section-subtitle'>Investasi terbaik untuk masa depan keluarga Anda dengan legalitas aman dan fasilitas terjamin.</p>
+          <p class='section-subtitle'>Setiap item di bawah ini dapat Anda ubah, tambah, atau hapus langsung dari menu Tata Letak.</p>
         </div>
 
-        <b:section id='features-section' maxwidgets='5' name='Section Keunggulan' showaddelement='yes'>
-          <b:widget id='HTML102' locked='false' title='Daftar 5 Keunggulan' type='HTML'>
+        <b:section id='about-section' maxwidgets='8' name='Keunggulan (About)' showaddelement='yes'>
+          <b:widget id='Image21' locked='false' title='Cicilan Ringan' type='Image'>
             <b:includable id='main'>
-              <div class='features-grid'>
-                <div class='feature-card'>
-                  <div class='feature-icon-box'>💰</div>
-                  <h3>Cicilan Ringan</h3>
-                  <p>Angsuran flat subsidi mulai Rp 1 Jutaan per bulan hingga lunas, sangat terjangkau bagi pasangan muda.</p>
-                </div>
-                <div class='feature-card'>
-                  <div class='feature-icon-box'>🏷️</div>
-                  <h3>DP Hanya 1%</h3>
-                  <p>Cukup bayar uang muka 1% Anda sudah bisa memilih nomor kavling idaman dan proses akad.</p>
-                </div>
-                <div class='feature-card'>
-                  <div class='feature-icon-box'>📐</div>
-                  <h3>Type Luas &amp; Asri</h3>
-                  <p>Pemanfaatan ruang maksimal, sirkulasi udara silang, plafon tinggi, serta taman depan dan belakang.</p>
-                </div>
-                <div class='feature-card'>
-                  <div class='feature-icon-box'>🧱</div>
-                  <h3>Double Dinding</h3>
-                  <p>Struktur hebel/bata merah ganda yang meredam suara tetangga dan memastikan privasi serta kekokohan.</p>
-                </div>
-                <div class='feature-card'>
-                  <div class='feature-icon-box'>🛣️</div>
-                  <h3>Lingkungan Ramai</h3>
-                  <p>Sudah dihuni ratusan KK, dekat pasar tradisional, sekolah favorit, rumah sakit, dan gerbang tol.</p>
-                </div>
+              <div class='about-modular-item'>
+                <b:if cond='data:sourceUrl'>
+                  <img class='about-modular-thumb' expr:alt='data:title' expr:src='data:sourceUrl'/>
+                </b:if>
+                <h3><data:title/></h3>
+                <p><data:caption/></p>
+                <b:if cond='data:link'>
+                  <a class='btn btn-outline btn-sm parsed-link' expr:href='data:link'>Pelajari &#8594;</a>
+                </b:if>
+              </div>
+            </b:includable>
+          </b:widget>
+
+          <b:widget id='Image22' locked='false' title='DP Hanya 1%' type='Image'>
+            <b:includable id='main'>
+              <div class='about-modular-item'>
+                <b:if cond='data:sourceUrl'>
+                  <img class='about-modular-thumb' expr:alt='data:title' expr:src='data:sourceUrl'/>
+                </b:if>
+                <h3><data:title/></h3>
+                <p><data:caption/></p>
+                <b:if cond='data:link'>
+                  <a class='btn btn-outline btn-sm parsed-link' expr:href='data:link'>Pelajari &#8594;</a>
+                </b:if>
+              </div>
+            </b:includable>
+          </b:widget>
+
+          <b:widget id='Image23' locked='false' title='Type Luas &amp; Asri' type='Image'>
+            <b:includable id='main'>
+              <div class='about-modular-item'>
+                <b:if cond='data:sourceUrl'>
+                  <img class='about-modular-thumb' expr:alt='data:title' expr:src='data:sourceUrl'/>
+                </b:if>
+                <h3><data:title/></h3>
+                <p><data:caption/></p>
+                <b:if cond='data:link'>
+                  <a class='btn btn-outline btn-sm parsed-link' expr:href='data:link'>Pelajari &#8594;</a>
+                </b:if>
+              </div>
+            </b:includable>
+          </b:widget>
+
+          <b:widget id='Image24' locked='false' title='Double Dinding Hebel' type='Image'>
+            <b:includable id='main'>
+              <div class='about-modular-item'>
+                <b:if cond='data:sourceUrl'>
+                  <img class='about-modular-thumb' expr:alt='data:title' expr:src='data:sourceUrl'/>
+                </b:if>
+                <h3><data:title/></h3>
+                <p><data:caption/></p>
+                <b:if cond='data:link'>
+                  <a class='btn btn-outline btn-sm parsed-link' expr:href='data:link'>Pelajari &#8594;</a>
+                </b:if>
+              </div>
+            </b:includable>
+          </b:widget>
+
+          <b:widget id='Image25' locked='false' title='Lingkungan Ramai &amp; Siap Huni' type='Image'>
+            <b:includable id='main'>
+              <div class='about-modular-item'>
+                <b:if cond='data:sourceUrl'>
+                  <img class='about-modular-thumb' expr:alt='data:title' expr:src='data:sourceUrl'/>
+                </b:if>
+                <h3><data:title/></h3>
+                <p><data:caption/></p>
+                <b:if cond='data:link'>
+                  <a class='btn btn-outline btn-sm parsed-link' expr:href='data:link'>Pelajari &#8594;</a>
+                </b:if>
               </div>
             </b:includable>
           </b:widget>
@@ -1255,93 +1187,56 @@
       </div>
     </section>
 
-    <!-- ================= 4. LISTING TYPE RUMAH ================= -->
-    <section class='section-pad' id='type-rumah' style='background: #ffffff;'>
+    <!-- ================= 4. SERVICE / TYPE RUMAH (MODULAR IMAGE WIDGETS) ================= -->
+    <section class='section-pad' id='type-rumah' style='background:#ffffff;'>
       <div class='container'>
         <div class='section-header'>
-          <div class='badge-pill'>Pilihan Unit</div>
-          <h2 class='section-title'>Type Rumah Subsidi &amp; Komersil</h2>
-          <p class='section-subtitle'>Pilih unit sesuai kebutuhan keluarga Anda dengan spesifikasi bangunan berkualitas.</p>
+          <div class='badge-pill'>Tipe Unit Hunian</div>
+          <h2 class='section-title'>Pilihan Type Rumah Subsidi &amp; Komersil</h2>
+          <p class='section-subtitle'>Gunakan widget Image di seksi ini untuk menambah unit rumah baru langsung dari Tata Letak.</p>
         </div>
 
-        <!-- Filter Tab -->
-        <div class='listing-filter-wrap'>
-          <button class='filter-btn active' data-filter='all'>Semua Tipe</button>
-          <button class='filter-btn' data-filter='subsidi'>Rumah Subsidi</button>
-          <button class='filter-btn' data-filter='komersil'>Rumah Komersil</button>
-        </div>
-
-        <b:section id='property-listings' maxwidgets='10' name='Listing Rumah' showaddelement='yes'>
-          <b:widget id='HTML103' locked='false' title='Daftar Unit Tersedia' type='HTML'>
+        <b:section id='service-section' maxwidgets='12' name='Type Rumah (Service)' showaddelement='yes'>
+          <b:widget id='Image31' locked='false' title='Type 30/60 (Rumah Subsidi)' type='Image'>
             <b:includable id='main'>
-              <div class='listing-grid'>
-                <!-- Unit 1: Subsidi Type 30/60 -->
-                <div class='property-card' data-category='subsidi'>
-                  <div class='property-thumb-wrap'>
-                    <span class='property-badge badge-subsidi'>Subsidi Pemerintah</span>
-                    <img alt='Type 30/60 Subsidi' src='https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                  </div>
-                  <div class='property-body'>
-                    <h3 class='property-title'>Type 30/60 (Pesona Asri)</h3>
-                    <div class='property-price'>Rp 185.000.000</div>
-                    <div class='property-installment'>Angsuran: Mulai Rp 1,1 Juta/bln (Flat)</div>
-                    <div class='property-specs-grid'>
-                      <div class='spec-item'><span class='spec-icon'>🛏️</span><span class='spec-label'>2 Kamar</span></div>
-                      <div class='spec-item'><span class='spec-icon'>🚿</span><span class='spec-label'>1 Mandi</span></div>
-                      <div class='spec-item'><span class='spec-icon'>🚗</span><span class='spec-label'>Carport</span></div>
-                      <div class='spec-item'><span class='spec-icon'>🛋️</span><span class='spec-label'>R. Tamu</span></div>
-                    </div>
-                    <div class='property-actions'>
-                      <button class='btn btn-outline btn-sm open-modal-btn' data-images='https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800,https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800,https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800' data-price='Rp 185.000.000' data-specs='Pondasi Batu Kali, Dinding Batako Press Diplester Aci, Lantai Keramik 40x40, Rangka Baja Ringan, Genteng Metal, Listrik 1300 Watt, Air Sumur Bor Bersih.' data-title='Type 30/60 - Pesona Asri (Subsidi)'>Lihat Detail</button>
-                      <a class='btn btn-primary btn-sm' href='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Rumah%20Type%2030%2F60%20Subsidi.' target='_blank'>Chat Sales</a>
-                    </div>
-                  </div>
+              <div class='service-modular-card'>
+                <b:if cond='data:sourceUrl'>
+                  <img class='service-modular-thumb' expr:alt='data:title' expr:src='data:sourceUrl'/>
+                </b:if>
+                <div class='service-modular-body'>
+                  <h3><data:title/></h3>
+                  <p><data:caption/></p>
+                  <a class='btn btn-primary btn-sm parsed-link' expr:href='data:link'>Detail &amp; Booking &#8594;</a>
                 </div>
+              </div>
+            </b:includable>
+          </b:widget>
 
-                <!-- Unit 2: Komersil Type 45/72 -->
-                <div class='property-card' data-category='komersil'>
-                  <div class='property-thumb-wrap'>
-                    <span class='property-badge badge-komersil'>Komersil Eksklusif</span>
-                    <img alt='Type 45/72 Komersil' src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                  </div>
-                  <div class='property-body'>
-                    <h3 class='property-title'>Type 45/72 (Pesona Sapphire)</h3>
-                    <div class='property-price'>Rp 395.000.000</div>
-                    <div class='property-installment'>Angsuran: Mulai Rp 2,6 Juta/bln</div>
-                    <div class='property-specs-grid'>
-                      <div class='spec-item'><span class='spec-icon'>🛏️</span><span class='spec-label'>2 Kamar</span></div>
-                      <div class='spec-item'><span class='spec-icon'>🚿</span><span class='spec-label'>1 Mandi</span></div>
-                      <div class='spec-item'><span class='spec-icon'>🚗</span><span class='spec-label'>Carport</span></div>
-                      <div class='spec-item'><span class='spec-icon'>🛋️</span><span class='spec-label'>R. Tamu</span></div>
-                    </div>
-                    <div class='property-actions'>
-                      <button class='btn btn-outline btn-sm open-modal-btn' data-images='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800,https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800,https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800' data-price='Rp 395.000.000' data-specs='Double Dinding Bata Merah, Lantai Granit 60x60, Sanitair Kloset Duduk Toto, Kusen Aluminium Powder Coated, Rangka Baja Ringan, Genteng Beton Flat, Listrik 2200 Watt, PDAM Tirta.' data-title='Type 45/72 - Pesona Sapphire (Komersil)'>Lihat Detail</button>
-                      <a class='btn btn-primary btn-sm' href='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Rumah%20Type%2045%2F72%20Komersil.' target='_blank'>Chat Sales</a>
-                    </div>
-                  </div>
+          <b:widget id='Image32' locked='false' title='Type 36/60 (Komersil Minimalis)' type='Image'>
+            <b:includable id='main'>
+              <div class='service-modular-card'>
+                <b:if cond='data:sourceUrl'>
+                  <img class='service-modular-thumb' expr:alt='data:title' expr:src='data:sourceUrl'/>
+                </b:if>
+                <div class='service-modular-body'>
+                  <h3><data:title/></h3>
+                  <p><data:caption/></p>
+                  <a class='btn btn-primary btn-sm parsed-link' expr:href='data:link'>Detail &amp; Booking &#8594;</a>
                 </div>
+              </div>
+            </b:includable>
+          </b:widget>
 
-                <!-- Unit 3: Komersil Type 60/90 -->
-                <div class='property-card' data-category='komersil'>
-                  <div class='property-thumb-wrap'>
-                    <span class='property-badge badge-komersil'>Komersil 2 Lantai</span>
-                    <img alt='Type 60/90 Komersil' src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                  </div>
-                  <div class='property-body'>
-                    <h3 class='property-title'>Type 60/90 (Pesona Diamond)</h3>
-                    <div class='property-price'>Rp 575.000.000</div>
-                    <div class='property-installment'>Angsuran: Mulai Rp 3,8 Juta/bln</div>
-                    <div class='property-specs-grid'>
-                      <div class='spec-item'><span class='spec-icon'>🛏️</span><span class='spec-label'>3 Kamar</span></div>
-                      <div class='spec-item'><span class='spec-icon'>🚿</span><span class='spec-label'>2 Mandi</span></div>
-                      <div class='spec-item'><span class='spec-icon'>🚗</span><span class='spec-label'>Carport</span></div>
-                      <div class='spec-item'><span class='spec-icon'>🛋️</span><span class='spec-label'>2 R. Tamu</span></div>
-                    </div>
-                    <div class='property-actions'>
-                      <button class='btn btn-outline btn-sm open-modal-btn' data-images='https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800,https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800,https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800' data-price='Rp 575.000.000' data-specs='Desain 2 Lantai Mewah, Double Dinding Bata Ringan, Smart Door Lock, Lantai Homogeneous Tile 60x60, Balkon Kaca Tempered, Listrik 2200 VA, Canopy Carport Termasuk.' data-title='Type 60/90 - Pesona Diamond (2 Lantai)'>Lihat Detail</button>
-                      <a class='btn btn-primary btn-sm' href='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Rumah%20Type%2060%2F90%20Komersil.' target='_blank'>Chat Sales</a>
-                    </div>
-                  </div>
+          <b:widget id='Image33' locked='false' title='Type 45/72 (Komersil Eksklusif)' type='Image'>
+            <b:includable id='main'>
+              <div class='service-modular-card'>
+                <b:if cond='data:sourceUrl'>
+                  <img class='service-modular-thumb' expr:alt='data:title' expr:src='data:sourceUrl'/>
+                </b:if>
+                <div class='service-modular-body'>
+                  <h3><data:title/></h3>
+                  <p><data:caption/></p>
+                  <a class='btn btn-primary btn-sm parsed-link' expr:href='data:link'>Detail &amp; Booking &#8594;</a>
                 </div>
               </div>
             </b:includable>
@@ -1350,59 +1245,92 @@
       </div>
     </section>
 
-    <!-- ================= 5. GALERI DOKUMENTASI & AKTIVITAS ================= -->
-    <section class='section-pad' id='galeri'>
+    <!-- ================= 5. OFFER / TABEL HARGA & SIMULASI (SEPERTI PESONAKAHURIPAN.ORG) ================= -->
+    <section class='section-pad' id='harga'>
+      <div class='container'>
+        <div class='section-header'>
+          <div class='badge-pill'>Simulasi Angsuran</div>
+          <h2 class='section-title'>Harga &amp; Spesifikasi Pembiayaan</h2>
+          <p class='section-subtitle'>Pilihan angsuran KPR flat dan terjangkau yang siap disesuaikan dengan kemampuan Anda.</p>
+        </div>
+
+        <b:section id='offer-section' maxwidgets='3' name='Harga &amp; Promo Khusus' showaddelement='yes'>
+          <b:widget id='HTML51' locked='false' title='Tabel Simulasi Angsuran' type='HTML'>
+            <b:includable id='main'>
+              <div class='pricing-wrap'>
+                <!-- Subsidi -->
+                <div class='pricing-card'>
+                  <div class='pricing-badge'>Subsidi Pemerintah</div>
+                  <h3>Subsidi Type 30/60</h3>
+                  <div class='pricing-price'>Rp 185.000.000</div>
+                  <div class='pricing-subtitle'>Angsuran Flat Sampai Lunas</div>
+                  <ul class='pricing-features'>
+                    <li><span>⏱️ Tenor 20 Tahun:</span> <strong>Rp 1.190.000 /bln</strong></li>
+                    <li><span>⏱️ Tenor 15 Tahun:</span> <strong>Rp 1.420.000 /bln</strong></li>
+                    <li><span>⏱️ Tenor 10 Tahun:</span> <strong>Rp 1.910.000 /bln</strong></li>
+                    <li><span>🧱 Struktur:</span> Double Dinding Bata Hebel</li>
+                    <li><span>🏷️ Biaya Awal:</span> DP Hanya 1%</li>
+                  </ul>
+                  <a class='btn btn-primary' href='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Booking%20Rumah%20Subsidi%20Type%2030%2F60.' target='_blank'>Booking Unit Subsidi</a>
+                </div>
+
+                <!-- Komersil -->
+                <div class='pricing-card featured'>
+                  <div class='pricing-badge'>Paling Diminati</div>
+                  <h3>Komersil Type 36/60</h3>
+                  <div class='pricing-price'>Rp 395.000.000</div>
+                  <div class='pricing-subtitle'>Desain Modern Double Dinding</div>
+                  <ul class='pricing-features'>
+                    <li><span>⏱️ Tenor 20 Tahun:</span> <strong>Rp 2.450.000 /bln</strong></li>
+                    <li><span>⏱️ Tenor 15 Tahun:</span> <strong>Rp 2.890.000 /bln</strong></li>
+                    <li><span>⏱️ Tenor 10 Tahun:</span> <strong>Rp 3.650.000 /bln</strong></li>
+                    <li><span>🧱 Struktur:</span> Bata Merah &amp; Granit 60x60</li>
+                    <li><span>🚗 Carport:</span> Rabat Beton Siap Pakai</li>
+                  </ul>
+                  <a class='btn btn-primary' href='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20Booking%20Rumah%20Komersil%20Type%2036%2F60.' target='_blank'>Booking Unit Komersil</a>
+                </div>
+              </div>
+            </b:includable>
+          </b:widget>
+        </b:section>
+      </div>
+    </section>
+
+    <!-- ================= 6. GALERI DOKUMENTASI (FANCYBOX INTEGRATION) ================= -->
+    <section class='section-pad' id='galeri' style='background:#ffffff;'>
       <div class='container'>
         <div class='section-header'>
           <div class='badge-pill'>Dokumentasi Nyata</div>
-          <h2 class='section-title'>Galeri Kawasan &amp; Aktivitas</h2>
-          <p class='section-subtitle'>Suasana lingkungan asri, kegiatan serah terima kunci, dan fasilitas cluster yang siap pakai.</p>
+          <h2 class='section-title'>Galeri Kawasan &amp; Kegiatan</h2>
+          <p class='section-subtitle'>Klik foto untuk memperbesar dengan tampilan popup lightbox resolusi tinggi.</p>
         </div>
 
-        <b:section id='gallery-section' maxwidgets='5' name='Galeri Perumahan' showaddelement='yes'>
-          <b:widget id='HTML104' locked='false' title='Foto Dokumentasi &amp; Fasilitas' type='HTML'>
+        <b:section id='gallery-section' maxwidgets='3' name='Galeri Kawasan' showaddelement='yes'>
+          <b:widget id='HTML90' locked='false' title='Grid Foto Galeri' type='HTML'>
             <b:includable id='main'>
               <div class='gallery-grid'>
                 <div class='gallery-item'>
-                  <img alt='Taman Bermain Anak' src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                  <div class='gallery-overlay'><span>Taman Bermain &amp; Jogging Track</span></div>
+                  <a data-caption='Taman Bermain &amp; Lingkungan Asri Cluster' data-fancybox='gallery' href='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=1200&amp;auto=format&amp;fit=crop&amp;q=80'>
+                    <img alt='Taman Bermain Anak' src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
+                    <div class='gallery-overlay'><span>Taman Bermain &amp; Jogging Track</span></div>
+                  </a>
                 </div>
                 <div class='gallery-item'>
-                  <img alt='Akad Kredit Masal' src='https://images.unsplash.com/photo-1577495508048-b635879837f1?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                  <div class='gallery-overlay'><span>Dokumentasi Akad Masal Bersama Bank</span></div>
+                  <a data-caption='Dokumentasi Akad Massal KPR Bersama Bank BUMN' data-fancybox='gallery' href='https://images.unsplash.com/photo-1577495508048-b635879837f1?w=1200&amp;auto=format&amp;fit=crop&amp;q=80'>
+                    <img alt='Akad Kredit Masal' src='https://images.unsplash.com/photo-1577495508048-b635879837f1?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
+                    <div class='gallery-overlay'><span>Dokumentasi Akad Masal Bersama Bank</span></div>
+                  </a>
                 </div>
                 <div class='gallery-item'>
-                  <img alt='Gerbang Utama &amp; Pos Satpam' src='https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                  <div class='gallery-overlay'><span>One Gate System &amp; Security 24 Jam</span></div>
+                  <a data-caption='One Gate System &amp; Security 24 Jam' data-fancybox='gallery' href='https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&amp;auto=format&amp;fit=crop&amp;q=80'>
+                    <img alt='Gerbang Utama &amp; Pos Satpam' src='https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
+                    <div class='gallery-overlay'><span>One Gate System &amp; Pos Keamanan</span></div>
+                  </a>
                 </div>
                 <div class='gallery-item'>
-                  <img alt='Serah Terima Kunci' src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                  <div class='gallery-overlay'><span>Serah Terima Kunci Konsumen Bahagia</span></div>
-                </div>
-              </div>
-            </b:includable>
-          </b:widget>
-        </b:section>
-      </div>
-    </section>
-
-    <!-- ================= 6. PROFIL MARKETING ================= -->
-    <section class='section-pad' id='marketing' style='background: #ffffff;'>
-      <div class='container'>
-        <b:section id='marketing-section' maxwidgets='2' name='Profil Tim Marketing' showaddelement='yes'>
-          <b:widget id='HTML105' locked='false' title='Kontak Sales Resmi' type='HTML'>
-            <b:includable id='main'>
-              <div class='marketing-card'>
-                <img alt='Official Marketing' class='marketing-photo' src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                <div class='marketing-info'>
-                  <div class='badge-pill'>Konsultan Properti Resmi</div>
-                  <h3>Siti Rahmawati, S.E.</h3>
-                  <div class='marketing-role'>Senior Property Advisor - Pesona Group</div>
-                  <p class='marketing-bio'>
-                    "Halo! Saya siap membantu Anda dari survei lokasi, konsultasi berkas KPR subsidi maupun komersil, hingga serah terima kunci dengan transparan, ramah, dan tanpa biaya perantara."
-                  </p>
-                  <a class='btn btn-primary' expr:href='&quot;https://wa.me/6281234567890?text=Halo%20Mbak%20Siti%2C%20saya%20tertarik%20dengan%20info%20perumahan%20&quot; + data:blog.canonicalUrl'>
-                    💬 Chat WhatsApp Langsung (0812-3456-7890)
+                  <a data-caption='Momen Bahagia Serah Terima Kunci Konsumen' data-fancybox='gallery' href='https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&amp;auto=format&amp;fit=crop&amp;q=80'>
+                    <img alt='Serah Terima Kunci' src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
+                    <div class='gallery-overlay'><span>Serah Terima Kunci Rumah Idaman</span></div>
                   </a>
                 </div>
               </div>
@@ -1412,58 +1340,60 @@
       </div>
     </section>
 
-    <!-- ================= 7. FAQ (PERTANYAAN SERING DIAJUKAN) ================= -->
+    <!-- ================= 7. FAQ ACCORDION (MODULAR TEXT WIDGETS) ================= -->
     <section class='section-pad' id='faq'>
       <div class='container'>
         <div class='section-header'>
           <div class='badge-pill'>Pusat Informasi</div>
           <h2 class='section-title'>Pertanyaan Yang Sering Diajukan</h2>
-          <p class='section-subtitle'>Temukan jawaban seputar syarat pengajuan KPR, biaya, dan serah terima unit.</p>
+          <p class='section-subtitle'>Setiap pertanyaan dan jawaban di bawah ini dibuat dari widget Text terpisah di Tata Letak.</p>
         </div>
 
-        <b:section id='faq-section' maxwidgets='5' name='Section FAQ' showaddelement='yes'>
-          <b:widget id='HTML106' locked='false' title='Daftar Tanya Jawab' type='HTML'>
+        <b:section id='faq-section' maxwidgets='10' name='Tanya Jawab (FAQ)' showaddelement='yes'>
+          <b:widget id='Text71' locked='false' title='Apakah angsuran KPR bersifat Flat?' type='Text'>
             <b:includable id='main'>
-              <div class='faq-wrap'>
-                <div class='faq-item active'>
-                  <div class='faq-question'>
-                    <span>Apa saja syarat untuk pengajuan KPR Rumah Subsidi?</span>
-                    <span class='faq-icon'>▼</span>
-                  </div>
-                  <div class='faq-answer'>
-                    Syarat utama KPR Subsidi adalah WNI usia minimal 21 tahun, belum pernah memiliki rumah, gaji pokok tidak melebihi batas ketentuan pemerintah (maksimal Rp 8 Juta), memiliki masa kerja minimal 1 tahun, serta BI Checking / SLIK OJK bersih dari riwayat kredit macet.
-                  </div>
+              <div class='faq-accordion-item'>
+                <div class='faq-accordion-header'>
+                  <span><data:title/></span>
+                  <span class='faq-accordion-icon'>▼</span>
                 </div>
+                <div class='faq-accordion-body'><data:text/></div>
+              </div>
+            </b:includable>
+          </b:widget>
 
-                <div class='faq-item'>
-                  <div class='faq-question'>
-                    <span>Berapa booking fee dan apakah hangus jika berkas ditolak bank?</span>
-                    <span class='faq-icon'>▼</span>
-                  </div>
-                  <div class='faq-answer'>
-                    Biaya booking fee hanya Rp 1.000.000 untuk memilih blok kavling. Jika permohonan KPR Anda tidak disetujui oleh bank terkait masalah kuota atau batas limit, uang booking dikembalikan sesuai ketentuan surat pesanan kavling tanpa potongan tersembunyi.
-                  </div>
+          <b:widget id='Text72' locked='false' title='Saya usia 21 tahun, apakah sudah bisa mengambil rumah?' type='Text'>
+            <b:includable id='main'>
+              <div class='faq-accordion-item'>
+                <div class='faq-accordion-header'>
+                  <span><data:title/></span>
+                  <span class='faq-accordion-icon'>▼</span>
                 </div>
+                <div class='faq-accordion-body'><data:text/></div>
+              </div>
+            </b:includable>
+          </b:widget>
 
-                <div class='faq-item'>
-                  <div class='faq-question'>
-                    <span>Kapan jadwal serah terima bangunan rumah?</span>
-                    <span class='faq-icon'>▼</span>
-                  </div>
-                  <div class='faq-answer'>
-                    Untuk unit siap huni (*Ready Stock*), serah terima kunci dilakukan maksimal 14 hari kerja setelah pelaksanaan akad kredit di bank. Untuk unit indent, estimasi pembangunan berkisar antara 3 hingga 6 bulan.
-                  </div>
+          <b:widget id='Text73' locked='false' title='Saya karyawan kontrak, apa syarat untuk lolos pengajuan?' type='Text'>
+            <b:includable id='main'>
+              <div class='faq-accordion-item'>
+                <div class='faq-accordion-header'>
+                  <span><data:title/></span>
+                  <span class='faq-accordion-icon'>▼</span>
                 </div>
+                <div class='faq-accordion-body'><data:text/></div>
+              </div>
+            </b:includable>
+          </b:widget>
 
-                <div class='faq-item'>
-                  <div class='faq-question'>
-                    <span>Bagaimana legalitas sertifikat perumahan ini?</span>
-                    <span class='faq-icon'>▼</span>
-                  </div>
-                  <div class='faq-answer'>
-                    Semua unit telah mengantongi izin resmi (PBG/IMB, Siteplan disahkan Pemda) dan sertifikat sudah pecah per kavling (SHGB/SHM), sehingga keamanan investasi dan kepemilikan Anda 100% terjamin secara hukum.
-                  </div>
+          <b:widget id='Text74' locked='false' title='Bagaimana status legalitas dan sertifikat tanah?' type='Text'>
+            <b:includable id='main'>
+              <div class='faq-accordion-item'>
+                <div class='faq-accordion-header'>
+                  <span><data:title/></span>
+                  <span class='faq-accordion-icon'>▼</span>
                 </div>
+                <div class='faq-accordion-body'><data:text/></div>
               </div>
             </b:includable>
           </b:widget>
@@ -1471,52 +1401,64 @@
       </div>
     </section>
 
-    <!-- ================= 8. TESTIMONI & KEPUASAN PELANGGAN ================= -->
-    <section class='section-pad' id='testimoni' style='background: #ffffff;'>
+    <!-- ================= 8. REVIEW / TESTIMONI (MODULAR IMAGE WIDGETS) ================= -->
+    <section class='section-pad' id='testimoni' style='background:#ffffff;'>
       <div class='container'>
         <div class='section-header'>
-          <div class='badge-pill'>Testimoni Konsumen</div>
+          <div class='badge-pill'>Kepuasan Konsumen</div>
           <h2 class='section-title'>Apa Kata Penghuni Kami?</h2>
-          <p class='section-subtitle'>Kepercayaan dan kepuasan ratusan keluarga yang telah menempati hunian kami.</p>
+          <p class='section-subtitle'>Foto konsumen, nama, dan testimoni dikelola secara modular lewat widget Image di Tata Letak.</p>
         </div>
 
-        <b:section id='testimonials-section' maxwidgets='5' name='Testimoni Konsumen' showaddelement='yes'>
-          <b:widget id='HTML107' locked='false' title='Review Pembeli' type='HTML'>
+        <b:section id='review-section' maxwidgets='10' name='Testimoni &amp; Review' showaddelement='yes'>
+          <b:widget id='Image41' locked='false' title='Pak Hendra Pratama' type='Image'>
             <b:includable id='main'>
-              <div class='testi-grid'>
-                <div class='testi-card'>
-                  <div class='testi-stars'>★★★★★</div>
-                  <p class='testi-text'>"Alhamdulillah proses KPR subsidi dibantu dari awal sampai akad tanpa dipersulit. Lingkungannya asri, tetangga ramah, dan air sumurnya jernih sekali."</p>
-                  <div class='testi-user'>
-                    <img alt='Bpk. Hendra' class='testi-avatar' src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                    <div>
-                      <div class='testi-name'>Hendra Pratama</div>
-                      <div class='testi-unit'>Penghuni Blok B-12 (Type 30/60)</div>
-                    </div>
+              <div class='review-modular-card'>
+                <div class='review-stars'>★★★★★</div>
+                <div class='review-text'>&quot;<data:caption/>&quot;</div>
+                <div class='review-author-wrap'>
+                  <b:if cond='data:sourceUrl'>
+                    <img class='review-avatar' expr:alt='data:title' expr:src='data:sourceUrl'/>
+                  </b:if>
+                  <div>
+                    <div class='review-name'><data:title/></div>
+                    <div class='review-unit'>Penghuni Blok B-12 (Type 30/60)</div>
                   </div>
                 </div>
+              </div>
+            </b:includable>
+          </b:widget>
 
-                <div class='testi-card'>
-                  <div class='testi-stars'>★★★★★</div>
-                  <p class='testi-text'>"Paling puas sama spesifikasi rumah komersilnya. Dindingnya double bata merah jadi kedap dan sejuk. Akses ke pintu tol beneran cuma 5 menit."</p>
-                  <div class='testi-user'>
-                    <img alt='Ibu Dewi' class='testi-avatar' src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                    <div>
-                      <div class='testi-name'>Dewi Kartika</div>
-                      <div class='testi-unit'>Penghuni Blok A-03 (Type 45/72)</div>
-                    </div>
+          <b:widget id='Image42' locked='false' title='Ibu Dewi Kartika' type='Image'>
+            <b:includable id='main'>
+              <div class='review-modular-card'>
+                <div class='review-stars'>★★★★★</div>
+                <div class='review-text'>&quot;<data:caption/>&quot;</div>
+                <div class='review-author-wrap'>
+                  <b:if cond='data:sourceUrl'>
+                    <img class='review-avatar' expr:alt='data:title' expr:src='data:sourceUrl'/>
+                  </b:if>
+                  <div>
+                    <div class='review-name'><data:title/></div>
+                    <div class='review-unit'>Penghuni Blok A-03 (Type 45/72)</div>
                   </div>
                 </div>
+              </div>
+            </b:includable>
+          </b:widget>
 
-                <div class='testi-card'>
-                  <div class='testi-stars'>★★★★★</div>
-                  <p class='testi-text'>"Tim salesnya responsif banget menjawab segala pertanyaan saya dan istri. Sekarang anak-anak bisa bebas main di taman cluster yang ada gerbang sekuritinya."</p>
-                  <div class='testi-user'>
-                    <img alt='Bpk. Reza' class='testi-avatar' src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                    <div>
-                      <div class='testi-name'>Reza Firmansyah</div>
-                      <div class='testi-unit'>Penghuni Blok C-21 (Type 30/60)</div>
-                    </div>
+          <b:widget id='Image43' locked='false' title='Bpk. Reza Firmansyah' type='Image'>
+            <b:includable id='main'>
+              <div class='review-modular-card'>
+                <div class='review-stars'>★★★★★</div>
+                <div class='review-text'>&quot;<data:caption/>&quot;</div>
+                <div class='review-author-wrap'>
+                  <b:if cond='data:sourceUrl'>
+                    <img class='review-avatar' expr:alt='data:title' expr:src='data:sourceUrl'/>
+                  </b:if>
+                  <div>
+                    <div class='review-name'><data:title/></div>
+                    <div class='review-unit'>Penghuni Blok C-21 (Type 30/60)</div>
                   </div>
                 </div>
               </div>
@@ -1526,36 +1468,35 @@
       </div>
     </section>
 
-    <!-- ================= 9. LOKASI & PETA ================= -->
+    <!-- ================= 9. KONTAK & LOKASI KANTOR ================= -->
     <section class='section-pad' id='lokasi'>
       <div class='container'>
         <div class='section-header'>
-          <div class='badge-pill'>Lokasi Strategis</div>
+          <div class='badge-pill'>Lokasi &amp; Kontak</div>
           <h2 class='section-title'>Kunjungi Kantor Pemasaran &amp; Show Unit</h2>
-          <p class='section-subtitle'>Terbuka setiap hari pukul 08:30 - 17:30 WIB. Jadwalkan survei gratis Anda sekarang.</p>
+          <p class='section-subtitle'>Kami siap melayani dan mendampingi kunjungan survei lokasi Anda setiap hari.</p>
         </div>
 
-        <b:section id='location-section' maxwidgets='3' name='Lokasi dan Peta' showaddelement='yes'>
-          <b:widget id='HTML108' locked='false' title='Alamat &amp; Google Maps' type='HTML'>
+        <b:section id='contact-section' maxwidgets='3' name='Kontak &amp; Peta' showaddelement='yes'>
+          <b:widget id='HTML108' locked='false' title='Alamat Kantor &amp; Google Maps' type='HTML'>
             <b:includable id='main'>
-              <div class='location-grid'>
-                <div class='location-card'>
-                  <h3 style='font-size: 1.4rem; font-weight: 800; margin-bottom: 16px;'>Kantor Pemasaran Pusat</h3>
-                  <p style='color: var(--text-muted); margin-bottom: 20px; line-height: 1.7;'>
+              <div class='contact-grid'>
+                <div class='contact-info-card'>
+                  <h3 style='font-size:1.4rem; font-weight:800; margin-bottom:16px;'>Kantor Pemasaran Resmi</h3>
+                  <p style='color:var(--text-muted); margin-bottom:20px; line-height:1.7;'>
                     Jl. Raya Pesona Hijau No. 88, Kawasan Harmoni Cluster, Karawang Barat, Jawa Barat 41361.
                   </p>
-                  <div style='display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;'>
-                    <div><strong>🕒 Jam Operasional:</strong> Senin - Minggu (08.30 - 17.30 WIB)</div>
-                    <div><strong>📞 Telepon Kantor:</strong> (0267) 845-6789</div>
-                    <div><strong>💬 Layanan WhatsApp:</strong> 0812-3456-7890</div>
+                  <div style='display:flex; flex-direction:column; gap:12px; margin-bottom:24px;'>
+                    <div><strong>🕒 Jam Buka:</strong> Senin - Minggu (08.30 - 17.30 WIB)</div>
+                    <div><strong>📞 Telepon:</strong> (0267) 845-6789</div>
+                    <div><strong>💬 WhatsApp:</strong> 0812-3456-7890</div>
                   </div>
                   <a class='btn btn-primary' href='https://maps.google.com' target='_blank'>
                     📍 Buka di Google Maps
                   </a>
                 </div>
 
-                <div class='map-frame-wrap'>
-                  <!-- Google Maps Iframe Responsif -->
+                <div class='map-wrap'>
                   <iframe allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade' src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126895.59005919427!2d107.24072873117562!3d-6.330887146522538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e697793d56efb9b%3A0x301e8f1fc28b870!2sKarawang%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid'></iframe>
                 </div>
               </div>
@@ -1565,65 +1506,41 @@
       </div>
     </section>
 
-    <!-- ================= 10. ARTIKEL & BERITA (BLOGGER POSTS) ================= -->
-    <section class='section-pad' id='artikel' style='background: #ffffff;'>
+    <!-- ================= 10. BLOG & ARTIKEL ================= -->
+    <section class='section-pad' id='artikel' style='background:#ffffff;'>
       <div class='container'>
         <div class='section-header'>
-          <div class='badge-pill'>Edukasi &amp; Berita</div>
-          <h2 class='section-title'>Artikel &amp; Tips Seputar Rumah</h2>
-          <p class='section-subtitle'>Panduan pengajuan KPR, tips menata hunian mungil, dan info update pembangunan kawasan.</p>
+          <div class='badge-pill'>Edukasi Properti</div>
+          <h2 class='section-title'>Artikel &amp; Berita Terbaru</h2>
+          <p class='section-subtitle'>Informasi penting seputar tips KPR, dekorasi hunian, dan regulasi kepemilikan rumah.</p>
         </div>
 
         <b:section id='main-blog-posts' maxwidgets='1' name='Postingan Blog' showaddelement='yes'>
           <b:widget id='Blog1' locked='true' title='Postingan Blog' type='Blog'>
             <b:includable id='main'>
-              <div class='articles-grid'>
+              <div class='review-modular-grid'>
                 <b:loop values='data:posts' var='post'>
-                  <article class='article-card'>
-                    <b:if cond='data:post.firstImageUrl'>
-                      <img class='article-thumb' expr:alt='data:post.title' expr:src='data:post.firstImageUrl' loading='lazy'/>
-                    <b:else/>
-                      <img class='article-thumb' expr:alt='data:post.title' loading='lazy' src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                    </b:if>
-                    <div class='article-body'>
-                      <div class='article-date'><data:post.dateHeader/></div>
-                      <h3 class='article-title'>
-                        <a expr:href='data:post.url'><data:post.title/></a>
-                      </h3>
-                      <p class='article-snippet'><data:post.snippet/></p>
-                      <a class='btn btn-outline btn-sm' expr:href='data:post.url'>Baca Selengkapnya &#8594;</a>
-                    </div>
+                  <article class='review-modular-card'>
+                    <div style='font-size:0.8rem; color:var(--text-muted);'><data:post.dateHeader/></div>
+                    <h3 style='font-size:1.2rem; font-weight:800;'>
+                      <a expr:href='data:post.url'><data:post.title/></a>
+                    </h3>
+                    <p class='review-text'><data:post.snippet/></p>
+                    <a class='btn btn-outline btn-sm' expr:href='data:post.url'>Baca Selengkapnya &#8594;</a>
                   </article>
                 </b:loop>
-                
-                <!-- Fallback post jika belum ada artikel yang dipublikasikan -->
                 <b:if cond='data:posts.empty'>
-                  <article class='article-card'>
-                    <img class='article-thumb' src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                    <div class='article-body'>
-                      <div class='article-date'>Update Terbaru</div>
-                      <h3 class='article-title'>Panduan Lengkap Syarat KPR Subsidi Terbaru Untuk Karyawan &amp; Wirausaha</h3>
-                      <p class='article-snippet'>Simak dokumen apa saja yang perlu disiapkan agar pengajuan KPR langsung lolos verifikasi bank tanpa kendala.</p>
-                      <a class='btn btn-outline btn-sm' href='#marketing'>Pelajari KPR</a>
-                    </div>
+                  <article class='review-modular-card'>
+                    <div style='font-size:0.8rem; color:var(--text-muted);'>Update KPR</div>
+                    <h3 style='font-size:1.2rem; font-weight:800;'>Panduan Lengkap Syarat KPR Subsidi Terbaru</h3>
+                    <p class='review-text'>Simak dokumen apa saja yang perlu disiapkan agar pengajuan KPR langsung lolos verifikasi bank tanpa kendala.</p>
+                    <a class='btn btn-outline btn-sm' href='#kontak'>Pelajari KPR &#8594;</a>
                   </article>
-                  <article class='article-card'>
-                    <img class='article-thumb' src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                    <div class='article-body'>
-                      <div class='article-date'>Tips Hunian</div>
-                      <h3 class='article-title'>5 Ide Dekorasi Rumah Type 30/60 Terlihat Luas dan Instagrammable</h3>
-                      <p class='article-snippet'>Trik penggunaan cermin, warna cat bernuansa pastel, dan furniture multifungsi untuk memaksimalkan ruang tamu.</p>
-                      <a class='btn btn-outline btn-sm' href='#marketing'>Pelajari Tips</a>
-                    </div>
-                  </article>
-                  <article class='article-card'>
-                    <img class='article-thumb' src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500&amp;auto=format&amp;fit=crop&amp;q=80'/>
-                    <div class='article-body'>
-                      <div class='article-date'>Investasi Properti</div>
-                      <h3 class='article-title'>Mengapa Rumah Dekat Pintu Tol Menjadi Investasi Paling Menjanjikan?</h3>
-                      <p class='article-snippet'>Analisis capital gain kenaikan harga tanah dan kemudahan mobilitas kerja harian menuju pusat perkotaan.</p>
-                      <a class='btn btn-outline btn-sm' href='#marketing'>Pelajari Investasi</a>
-                    </div>
+                  <article class='review-modular-card'>
+                    <div style='font-size:0.8rem; color:var(--text-muted);'>Tips Menata Ruang</div>
+                    <h3 style='font-size:1.2rem; font-weight:800;'>5 Ide Desain Ruang Tamu Type 30/60 Nyaman</h3>
+                    <p class='review-text'>Trik penggunaan warna pastel dan furniture multifungsi untuk memaksimalkan ruangan agar terasa luas.</p>
+                    <a class='btn btn-outline btn-sm' href='#kontak'>Pelajari Tips &#8594;</a>
                   </article>
                 </b:if>
               </div>
@@ -1653,8 +1570,8 @@
           <h4>Navigasi Cepat</h4>
           <ul>
             <li><a href='#keunggulan'>Keunggulan</a></li>
-            <li><a href='#type-rumah'>Type Rumah Subsidi</a></li>
-            <li><a href='#type-rumah'>Type Rumah Komersil</a></li>
+            <li><a href='#type-rumah'>Type Rumah</a></li>
+            <li><a href='#harga'>Harga &amp; Angsuran</a></li>
             <li><a href='#galeri'>Galeri Kawasan</a></li>
             <li><a href='#faq'>Tanya Jawab (FAQ)</a></li>
           </ul>
@@ -1663,10 +1580,10 @@
         <div class='footer-links'>
           <h4>Layanan &amp; Bantuan</h4>
           <ul>
-            <li><a href='#marketing'>Simulasi Angsuran</a></li>
-            <li><a href='#marketing'>Booking Jadwal Survei</a></li>
+            <li><a href='#harga'>Simulasi Angsuran</a></li>
+            <li><a href='#kontak'>Booking Jadwal Survei</a></li>
             <li><a href='#lokasi'>Rute Lokasi</a></li>
-            <li><a href='#marketing'>Hubungi Sales Resmi</a></li>
+            <li><a href='#kontak'>Hubungi Sales Resmi</a></li>
           </ul>
         </div>
       </div>
@@ -1677,163 +1594,155 @@
     </div>
   </footer>
 
-  <!-- ================= MODAL DETAIL UNIT (POPUP) ================= -->
-  <div class='modal-overlay' id='property-detail-modal'>
-    <div class='modal-box'>
-      <button aria-label='Close' class='modal-close-btn' id='modal-close-btn'>✕</button>
-      <h3 id='modal-title' style='font-size: 1.5rem; font-weight: 800; margin-bottom: 6px; color: var(--text-dark);'>Detail Unit</h3>
-      <div id='modal-price' style='font-size: 1.25rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 16px;'>Rp 0</div>
-      
-      <div class='modal-gallery-main'>
-        <img alt='Tampak Rumah' id='modal-main-img' src=''/>
-      </div>
-      <div class='modal-thumbs' id='modal-thumbs-container'></div>
+  <!-- ================= 12. FLOATING CHAT & LEAD CAPTURE WIDGET ================= -->
+  <b:section id='widget-section' maxwidgets='1' name='Floating WhatsApp Lead' showaddelement='yes'>
+    <b:widget id='Image91' locked='false' title='Official Marketing Online' type='Image'>
+      <b:includable id='main'>
+        <div class='floating-chat-container'>
+          <!-- Chat Pop-up Box -->
+          <div class='floating-chat-box' id='floating-chat-box'>
+            <div class='chat-box-header'>
+              <img alt='Marketing Online' class='chat-header-avatar' expr:src='data:sourceUrl'/>
+              <div class='chat-header-info'>
+                <h4><data:title/></h4>
+                <small>Online | Siap Membantu</small>
+              </div>
+            </div>
+            <div class='chat-box-body'>
+              <div class='chat-bubble'>
+                <data:caption/>
+              </div>
+              <form class='chat-form' id='quick-lead-form'>
+                <input autocomplete='off' class='chat-input' id='quick-message-input' placeholder='Tulis pertanyaan Anda...' required='' type='text'/>
+                <button aria-label='Kirim Pesan' class='chat-send-btn' type='submit'>
+                  ✈️
+                </button>
+              </form>
+            </div>
+          </div>
 
-      <h4 style='font-weight: 700; margin-bottom: 8px; color: var(--text-dark);'>Spesifikasi Teknis Bangunan:</h4>
-      <p id='modal-specs' style='color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 24px;'></p>
+          <!-- Trigger Button -->
+          <button class='floating-trigger-btn' id='floating-trigger-btn'>
+            <span>💬</span>
+            <span>Tanya Marketing</span>
+          </button>
+        </div>
+      </b:includable>
+    </b:widget>
+  </b:section>
 
-      <a class='btn btn-primary' href='https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20ingin%20jadwalkan%20survei%20unit.' id='modal-cta-wa' style='width: 100%;' target='_blank'>
-        Chat Sales via WhatsApp Untuk Booking Unit Ini
-      </a>
-    </div>
-  </div>
+  <!-- ================= THIRD-PARTY PLUGINS & JAVASCRIPT ================= -->
+  <!-- FancyBox 5 JS for Gallery Lightbox -->
+  <script src='https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js'></script>
+  <!-- SweetAlert2 JS for Form Lead Dialog -->
+  <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
 
-  <!-- ================= FLOATING STICKY WHATSAPP BUTTON ================= -->
-  <a class='sticky-wa-btn' expr:href='&quot;https://wa.me/6281234567890?text=Halo%20Marketing%2C%20saya%20tertarik%20dengan%20info%20perumahan%20&quot; + data:blog.canonicalUrl' target='_blank'>
-    <span>💬</span>
-    <span>Chat WhatsApp</span>
-  </a>
-
-  <!-- ================= JAVASCRIPT LOGIC ================= -->
   <script><![CDATA[
   document.addEventListener('DOMContentLoaded', function() {
-    // 1. Mobile Hamburger Menu Toggle
+    // 1. Inisialisasi Fancybox untuk Galeri
+    if (typeof Fancybox !== 'undefined') {
+      Fancybox.bind('[data-fancybox]', {});
+    }
+
+    // 2. Mobile Hamburger Menu Toggle
     const hamburgerBtn = document.getElementById('hamburger-toggle');
     const navMenu = document.getElementById('nav-menu');
     if (hamburgerBtn && navMenu) {
       hamburgerBtn.addEventListener('click', function() {
         navMenu.classList.toggle('mobile-open');
       });
-      // Close menu when clicking link
       navMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => navMenu.classList.remove('mobile-open'));
       });
     }
 
-    // 2. Hero Slider Auto-Play
-    const slides = document.querySelectorAll('.hero-slide');
-    const dots = document.querySelectorAll('.slider-dot');
-    let currentSlide = 0;
-    let slideInterval;
-
-    function showSlide(index) {
-      if (slides.length === 0) return;
-      slides.forEach(s => s.classList.remove('active'));
-      dots.forEach(d => d.classList.remove('active'));
-      currentSlide = (index + slides.length) % slides.length;
-      slides[currentSlide].classList.add('active');
-      if (dots[currentSlide]) dots[currentSlide].classList.add('active');
-    }
-
-    function startSlider() {
-      if (slides.length > 1) {
-        slideInterval = setInterval(() => {
-          showSlide(currentSlide + 1);
-        }, 4500);
+    // 3. Parsing Format Link Ganda (Label|URL) pada Widget Image
+    document.querySelectorAll('.parsed-link').forEach(link => {
+      const rawHref = link.getAttribute('href') || '';
+      if (rawHref.includes('|')) {
+        const parts = rawHref.split('|');
+        link.textContent = parts[0].trim();
+        link.setAttribute('href', parts[1].trim());
       }
-    }
+    });
 
-    dots.forEach((dot, idx) => {
-      dot.addEventListener('click', () => {
-        clearInterval(slideInterval);
-        showSlide(idx);
-        startSlider();
+    // 4. FAQ Accordion Toggle
+    document.querySelectorAll('.faq-accordion-header').forEach(header => {
+      header.addEventListener('click', function() {
+        const item = this.closest('.faq-accordion-item');
+        const isActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-accordion-item').forEach(i => i.classList.remove('active'));
+        if (!isActive) {
+          item.classList.add('active');
+        }
       });
     });
-    startSlider();
 
-    // 3. Filter Type Rumah (Semua | Subsidi | Komersil)
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const propertyCards = document.querySelectorAll('.property-card');
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', function() {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        const filterVal = this.getAttribute('data-filter');
+    // 5. Floating Chat Toggle
+    const triggerBtn = document.getElementById('floating-trigger-btn');
+    const chatBox = document.getElementById('floating-chat-box');
+    if (triggerBtn && chatBox) {
+      triggerBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        chatBox.classList.toggle('active');
+      });
+      document.addEventListener('click', function(e) {
+        if (!chatBox.contains(e.target) && e.target !== triggerBtn) {
+          chatBox.classList.remove('active');
+        }
+      });
+    }
 
-        propertyCards.forEach(card => {
-          if (filterVal === 'all' || card.getAttribute('data-category') === filterVal) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
+    // 6. SweetAlert2 Lead Capture + WhatsApp + Google Sheets
+    const leadForm = document.getElementById('quick-lead-form');
+    if (leadForm) {
+      leadForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const userMsg = document.getElementById('quick-message-input').value;
+        const phone = (typeof $marketingWhatsApp !== 'undefined' && $marketingWhatsApp) ? $marketingWhatsApp : '6281234567890';
+
+        Swal.fire({
+          title: 'Isi Data Diri Anda',
+          text: 'Kami akan segera menghubungi dan mengirimkan brosur ke WhatsApp Anda.',
+          html:
+            '<input id="swal-lead-name" class="swal2-input" placeholder="Nama Lengkap">' +
+            '<input id="swal-lead-wa" class="swal2-input" placeholder="Nomor WhatsApp (contoh: 0812xxx)" type="tel">',
+          focusConfirm: false,
+          showCancelButton: true,
+          confirmButtonText: 'Kirim via WhatsApp',
+          cancelButtonText: 'Batal',
+          confirmButtonColor: '#10b981',
+          preConfirm: () => {
+            const name = document.getElementById('swal-lead-name').value;
+            const wa = document.getElementById('swal-lead-wa').value;
+            if (!name || !wa) {
+              Swal.showValidationMessage('Nama dan Nomor WhatsApp wajib diisi');
+              return false;
+            }
+            return { name: name, wa: wa };
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            const clientName = result.value.name;
+            const clientWa = result.value.wa;
+
+            // Optional Webhook Google Sheets
+            if (typeof $googleSheetScriptUrl !== 'undefined' && $googleSheetScriptUrl && $googleSheetScriptUrl.startsWith('http')) {
+              const sheetUrl = $googleSheetScriptUrl + '?name=' + encodeURIComponent(clientName) + '&wa=' + encodeURIComponent("'" + clientWa) + '&message=' + encodeURIComponent(userMsg);
+              fetch(sheetUrl, { mode: 'no-cors' }).catch(err => console.log(err));
+            }
+
+            // Redirect ke WhatsApp
+            const finalMessage = "Halo Marketing,\n\nNama: " + clientName + "\nNo WhatsApp: " + clientWa + "\nPesan: " + userMsg + "\n\nReferensi: " + window.location.href;
+            const waUrl = "https://api.whatsapp.com/send?phone=" + phone + "&text=" + encodeURIComponent(finalMessage);
+            window.open(waUrl, '_blank');
+
+            document.getElementById('quick-message-input').value = '';
+            if (chatBox) chatBox.classList.remove('active');
           }
         });
       });
-    });
-
-    // 4. Modal Popup Detail Rumah & Galeri
-    const modal = document.getElementById('property-detail-modal');
-    const modalCloseBtn = document.getElementById('modal-close-btn');
-    const modalTitle = document.getElementById('modal-title');
-    const modalPrice = document.getElementById('modal-price');
-    const modalSpecs = document.getElementById('modal-specs');
-    const modalMainImg = document.getElementById('modal-main-img');
-    const modalThumbsContainer = document.getElementById('modal-thumbs-container');
-    const modalCtaWa = document.getElementById('modal-cta-wa');
-
-    document.querySelectorAll('.open-modal-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const title = this.getAttribute('data-title');
-        const price = this.getAttribute('data-price');
-        const specs = this.getAttribute('data-specs');
-        const images = (this.getAttribute('data-images') || '').split(',');
-
-        if (modalTitle) modalTitle.textContent = title;
-        if (modalPrice) modalPrice.textContent = price;
-        if (modalSpecs) modalSpecs.textContent = specs;
-        if (modalMainImg && images[0]) modalMainImg.src = images[0];
-
-        if (modalThumbsContainer) {
-          modalThumbsContainer.innerHTML = '';
-          images.forEach((imgUrl, i) => {
-            const thumb = document.createElement('img');
-            thumb.src = imgUrl;
-            thumb.className = 'modal-thumb' + (i === 0 ? ' active' : '');
-            thumb.addEventListener('click', () => {
-              modalMainImg.src = imgUrl;
-              document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
-              thumb.classList.add('active');
-            });
-            modalThumbsContainer.appendChild(thumb);
-          });
-        }
-
-        if (modalCtaWa) {
-          modalCtaWa.href = 'https://wa.me/6281234567890?text=' + encodeURIComponent('Halo Marketing, saya ingin bertanya lebih lanjut tentang unit: ' + title + ' (' + price + ')');
-        }
-
-        if (modal) modal.classList.add('active');
-      });
-    });
-
-    if (modalCloseBtn && modal) {
-      modalCloseBtn.addEventListener('click', () => modal.classList.remove('active'));
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) modal.classList.remove('active');
-      });
     }
-
-    // 5. FAQ Accordion Toggle
-    document.querySelectorAll('.faq-question').forEach(question => {
-      question.addEventListener('click', function() {
-        const parent = this.closest('.faq-item');
-        const isActive = parent.classList.contains('active');
-        document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
-        if (!isActive) {
-          parent.classList.add('active');
-        }
-      });
-    });
   });
   ]]></script>
 </body>

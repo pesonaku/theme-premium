@@ -1,54 +1,106 @@
 # 📖 Panduan Penggunaan & Konfigurasi Tata Letak (Blogger.com)
+## Versi Modular & High Conversion (Inspirasi: PesonaKahuripan.org)
 
-Tema **Pesona Green Residence** dirancang agar dapat digunakan langsung oleh publik dan dikonfigurasi tanpa harus mengubah kode XML secara manual.
+Tema **Pesona Green Residence v2.0** mengadopsi sistem arsitektur widget modular yang fleksibel. Setiap bagian halaman dapat ditambah, diedit, atau dihapus langsung melalui menu **Tata Letak (Layout)** di dashboard Blogger.com.
 
 ---
 
 ## 🚀 1. Cara Memasang Tema di Blogger
 
 1. Masuk ke dashboard [Blogger.com](https://www.blogger.com).
-2. Pilih blog Anda, lalu klik menu **Tema (Theme)** di navigasi sebelah kiri.
-3. Klik tombol titik tiga (⋮) di sebelah tombol "Sesuaikan" / "Customize".
+2. Pilih blog Anda, lalu klik menu **Tema (Theme)**.
+3. Klik tanda panah/titik tiga (⋮) di sebelah tombol "Sesuaikan" / "Customize".
 4. Pilih **Pulihkan (Restore)**.
 5. Unggah file `blogger/template.xml` dari repositori ini.
-6. Tunggu hingga proses upload selesai, dan buka blog Anda untuk melihat hasilnya.
+6. Tunggu hingga proses upload selesai ("Tema dipulihkan").
 
 ---
 
 ## 🎨 2. Mengubah Warna Tema (Light Green Customizer)
 
-1. Masuk ke menu **Tema** -> klik **Sesuaikan (Customize)**.
+1. Buka menu **Tema** -> klik **Sesuaikan (Customize)**.
 2. Pilih tab **Lanjutan (Advanced)**.
-3. Anda akan melihat palet warna variabel:
-   - **Warna Utama (Emerald)**: `#10b981`
-   - **Warna Utama Gelap**: `#059669`
-   - **Warna Latar Lembut**: `#ecfdf5`
-   - **Warna Aksen Promo**: `#f59e0b`
-4. Pilih warna sesuai keinginan Anda, lalu klik ikon **Simpan** di pojok kanan bawah.
+3. Anda dapat langsung mengganti:
+   - **Warna Utama (Emerald)**: `#10b981` (Warna tombol, link aktif, border fokus)
+   - **Warna Utama Gelap**: `#059669` (Gradien tombol & hover)
+   - **Warna Latar Lembut**: `#ecfdf5` (Badge pill, background seksi)
+   - **Warna Aksen Promo**: `#f59e0b` (Bintang review & aksen badge)
+4. Klik tombol **Simpan** (ikon disket) di pojok kanan bawah.
 
 ---
 
-## 🛠️ 3. Konfigurasi Konten Lewat Menu Tata Letak (Layout)
+## 🎛️ 3. Pengaturan Bagian Halaman Lewat Menu Tata Letak (Layout)
 
-Buka menu **Tata Letak (Layout)** di dashboard Blogger. Anda dapat mengedit setiap widget dengan mengklik ikon pensil (Edit):
+Buka menu **Tata Letak (Layout)** di Blogger. Berikut daftar bagian dan cara mengisinya:
 
-| Bagian (Section) | Nama Widget | Apa yang Dapat Diubah? |
-| :--- | :--- | :--- |
-| **Header Logo** | `Header1` | Nama blog atau unggah logo gambar perumahan |
-| **Hero Slider** | `HTML101` | Link gambar banner promo, teks diskon, link CTA |
-| **Keunggulan** | `HTML102` | 5 poin keunggulan (Cicilan, DP, Type luas, Double dinding, dll) |
-| **Listing Rumah** | `HTML103` | Menambah/mengubah tipe rumah subsidi & komersil, foto, dan spek modal |
-| **Galeri Kawasan**| `HTML104` | Link foto kegiatan akad masal, fasilitas, taman |
-| **Profil Marketing**| `HTML105` | Foto marketing, nama, nomor WhatsApp sales |
-| **FAQ** | `HTML106` | Daftar pertanyaan & jawaban seputar syarat KPR |
-| **Testimoni** | `HTML107` | Ulasan konsumen, nama pembeli, rating bintang |
-| **Lokasi & Peta** | `HTML108` | Alamat kantor pemasaran & link iframe Google Maps |
-| **Postingan Blog** | `Blog1` | Jumlah artikel yang ditampilkan otomatis dari artikel Anda |
+### 3.1 Header & Navigasi
+- **Header & Logo (`Header1`)**: Masukkan nama perumahan atau unggah gambar logo transparan.
+- **Navigasi Menu (`LinkList1`)**: Tambahkan item menu dengan target anchor:
+  - `#keunggulan` (Keunggulan)
+  - `#type-rumah` (Tipe Rumah)
+  - `#harga` (Simulasi Harga)
+  - `#galeri` (Galeri)
+  - `#faq` (Tanya Jawab)
+  - `#lokasi` (Lokasi)
+  - `#kontak` (Kontak)
+
+### 3.2 Hero Banner Cover (`cover-section`)
+- Menggunakan widget **Image** (`Image11`).
+  - **Judul**: Tagline utama banner (contoh: *Wujudkan Rumah Impian Anda*).
+  - **Keterangan / Caption**: Deskripsi singkat promo perumahan.
+  - **Gambar**: Unggah foto perumahan resolusi tinggi (1600x900px).
+  - **Tautan / Link**: Masukkan link tujuan atau gunakan format ganda `Label Tombol|#link` (contoh: `Pilih Tipe Rumah|#type-rumah`).
+
+### 3.3 Keunggulan / About (`about-section`)
+- Terdiri dari widget **Image** modular (`Image21` s/d `Image25`):
+  - Anda dapat **menambah widget Image baru** kapan saja dengan klik *Tambahkan Gadget -> Gambar*.
+  - **Judul**: Poin keunggulan (contoh: *Cicilan Ringan*, *DP Hanya 1%*, *Double Dinding*).
+  - **Keterangan**: Deskripsi penjelasan keunggulan.
+  - **Gambar**: Icon / foto penunjang keunggulan.
+
+### 3.4 Tipe Rumah / Service (`service-section`)
+- Terdiri dari widget **Image** modular (`Image31`, `Image32`, `Image33`, dst):
+  - **Judul**: Tipe rumah (contoh: *Type 30/60 Subsidi*, *Type 36/60 Komersil*).
+  - **Keterangan**: Spesifikasi ringkas (kamar, luas tanah, fasilitas).
+  - **Gambar**: Foto tampak depan rumah / denah layout.
+  - **Tautan / Link**: Link WhatsApp pemesanan atau halaman artikel detail.
+
+### 3.5 Simulasi Angsuran & Harga Promo (`offer-section`)
+- Widget **HTML** (`HTML51`):
+  - Berisi tabel perbandingan angsuran tenor 10, 15, 20 tahun untuk rumah subsidi dan komersil.
+  - Anda dapat mengedit besaran nominal cicilan langsung pada widget ini.
+
+### 3.6 Galeri Kawasan & Fasilitas (`gallery-section`)
+- Widget **HTML** (`HTML90`):
+  - Foto dokumentasi akad kredit, taman bermain, dan pos keamanan.
+  - Terintegrasi dengan **FancyBox 5.0**: Setiap foto yang memiliki atribut `data-fancybox="gallery"` akan otomatis terbuka dalam format popup lightbox berkualitas tinggi saat diklik.
+
+### 3.7 Tanya Jawab / FAQ Accordion (`faq-section`)
+- Terdiri dari widget **Text** modular (`Text71` s/d `Text74`):
+  - **Judul**: Pertanyaan (contoh: *Apakah angsuran KPR bersifat Flat?*).
+  - **Isi Teks**: Jawaban lengkap.
+  - Efek show/hide accordion bekerja otomatis tanpa perlu coding.
+
+### 3.8 Kepuasan Konsumen / Review (`review-section`)
+- Terdiri dari widget **Image** modular (`Image41`, `Image42`, `Image43`):
+  - **Judul**: Nama konsumen (contoh: *Pak Hendra Pratama*).
+  - **Keterangan**: Ulasan/testimoni konsumen.
+  - **Gambar**: Foto profil konsumen.
+
+### 3.9 Floating Chat & Lead Capture WhatsApp (`widget-section`)
+- Widget **Image** (`Image91`):
+  - **Judul**: Nama Marketing Online (contoh: *Siti - Sales Advisor*).
+  - **Keterangan**: Kalimat sapaan bubble (contoh: *Halo, butuh simulasi angsuran atau info survei lokasi?*).
+  - **Gambar**: Foto profil marketing.
+  - **Fitur SweetAlert2**: Ketika pengunjung mengisi pertanyaan dan menekan tombol kirim, modal dialog interaktif akan meminta Nama & Nomor WhatsApp, lalu otomatis meneruskannya ke WhatsApp marketing dan mencatatnya ke Google Sheets (jika diaktifkan).
 
 ---
 
-## 📱 4. Mengganti Nomor WhatsApp Marketing
+## 📲 4. Mengganti Nomor WhatsApp & Google Sheets Webhook
 
-Untuk mengganti nomor WhatsApp default (`6281234567890`) ke nomor Anda:
-- Edit widget **HTML105** (Profil Tim Marketing) di Tata Letak.
-- Ganti nomor telepon pada tautan `https://wa.me/6281234567890` dengan nomor WhatsApp Anda (diawali kode negara `62` tanpa tanda `+` atau `0`).
+Buka widget **HTML1 (Script & Webhook Config)** di paling atas atau cari di menu Tata Letak:
+```javascript
+const $googleSheetScriptUrl = "URL_GOOGLE_APPS_SCRIPT_ANDA"; // Biarkan kosong jika tidak digunakan
+const $marketingWhatsApp = "6281234567890"; // Ganti dengan nomor WhatsApp Anda
+```
+*(Gunakan format angka internasional diawali 62 tanpa spasi atau tanda plus).*
