@@ -53,12 +53,36 @@ Saat Anda membuka menu **Tata Letak (Layout)** di Blogger, Anda akan melihat blo
 
 ---
 
-## ✏️ Cara Mengubah Konten:
+## ✏️ Cara Mengubah Konten di Tata Letak (Layout)
 
 1. Buka dashboard **Blogger.com** -> klik menu **Tata Letak (Layout)**.
-2. Cari bagian yang ingin Anda ubah (misalnya: `[7] Profil Marketing Resmi`).
+2. Cari bagian yang ingin Anda ubah (misalnya: `[7] Profil Marketing Resmi` atau `[10] Lokasi & Google Maps`).
 3. Klik tombol **Edit** (ikon pensil).
-4. Ubah teks, nomor telepon, atau foto sesuai keinginan Anda.
-5. Klik **Simpan (Save)**.
+4. Masukkan atau ubah isi teks / HTML di kolom **Konten (Content)**.
+5. Klik **Simpan (Save)** di jendela popup widget, lalu klik tombol **Simpan** (ikon disket di pojok kanan bawah Blogger).
 
-Semua perubahan langsung tampil di website secara instan tanpa perlu repot mengatur posisi atau menambah gadget baru!
+> 💡 **Cara Kerja Sistem Konten:**
+> - **Jika Kolom Konten Diisi**: Website akan menampilkan konten baru yang Anda tulis.
+> - **Jika Kolom Konten Kosong**: Template secara otomatis menampilkan tampilan default bawaan tema yang rapi, modern, dan profesional.
+> - **Mereset ke Semula**: Jika ingin mengembalikan tampilan awal bawaan tema, cukup kosongkan kembali kolom **Konten** lalu klik **Simpan**.
+
+---
+
+## 💡 Contoh Kustomisasi Cepat
+
+### 1. Mengubah Kontak Marketing & WhatsApp (`[7]` & `[13]`)
+- Buka widget **[7] Profil Marketing Resmi** atau **[13] Floating Chat & Nomor WhatsApp**.
+- Masukkan link WhatsApp Anda dengan format:
+  ```html
+  https://api.whatsapp.com/send?phone=6281234567890&text=Halo%20Marketing
+  ```
+  *(Ganti `6281234567890` dengan nomor WhatsApp Anda diawali kode negara 62)*
+
+### 2. Mengubah Lokasi Google Maps (`[10]`)
+- Buka Google Maps di browser -> Cari lokasi perumahan / kantor Anda.
+- Klik tombol **Bagikan (Share)** -> Pilih tab **Sematkan peta (Embed a map)** -> Salin kode HTML iframe.
+- Buka widget **[10] Lokasi & Google Maps** di Blogger -> Tempelkan (paste) kode iframe ke kolom **Konten** -> Simpan.
+
+### 3. Mengganti Logo Perumahan (`[1]`)
+- Buka widget **[1] Header Logo Perumahan** -> Unggah gambar logo perumahan Anda dari komputer -> Pilih opsi *"Di belakang judul dan keterangan"* atau *"Selain judul dan keterangan"* -> Simpan.
+
