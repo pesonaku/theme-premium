@@ -1,0 +1,24 @@
+buatkan issue.md yang isinya perencanaan yang nantinya akan di implementasikan oleh Programer atau AI Model yang lebih Murah buatkan intruksi yang High Level dengan rincian sebagai berikut :
+
+Buatkan Template landingpage blogger.com (XML) yang simpel, keren, modern, responsive dan SEO Friendly dengan warna light green
+
+menggunakan Next.js dan laravel dengan menggunakan repository github.com
+ini adalah alamat repository github saya untuk tema ini https://github.com/pesonaku/theme-premium.git
+
+saya ingin struktur nya sebagai berikut :
+
+- Head menu dan logo perumahan (bisa tap scroll dan menu humberg ketika tampilan handphone)
+- Hero Banner dengan foto slide otomatis (ini bisa di isi dengan promo terbaru untuk penjualan)
+- Judul, Deskripsi dan CTA
+- Keunggulan dan deskripsi (Cicilan Ringan, DP Hanya 1%, Type Luas, Double dinding, Lingkungan Ramai)
+- Card Listing Type Rumah (menampilkan Gambar Rumah, harga rumah, menampilkan Icon kamar tidur dan jumlah, Kamar Mandi, Carport, Ruang Tamu, Galery tampak rumah pada popup detail)
+- Type rumah Subsidi & Komersil (berisi Gambar, Judul dan Deskripsi)
+- Galery (berisi foto foto perumahan ataupun aktifitas kegiatan di perumahan baik event ataupun akad masal)
+- Profile marketing berikut foto dan CTA
+- FAQ (Pertanyaan yang sering diajukan) judul dan deskripsi buat akar bisa show/hide
+- Kepuasan Pelanggan (mini foto judul nama, Testimoni dan rating)
+- Map Lokasi dan Alamat Kantor
+- Artikel
+- Footer berikut info sosial media
+
+saya ingin semua section ini bisa di konfigurasi dan terintegrasi pada menu tataletak di blogger.com agar mudah untuk update konten dan bisa merubah warna tema sesuai keinginan, saya ingin template ini agar bisa langsung digunakan oleh user public
