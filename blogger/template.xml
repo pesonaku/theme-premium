@@ -1591,7 +1591,7 @@
                         <a expr:href='data:post.url'><data:post.title/></a>
                       </h3>
                       <p class='article-snippet'><data:post.snippet/></p>
-                      <a class='btn btn-outline btn-sm' expr:href='data:post.url'>Baca Selengkapnya &rarr;</a>
+                      <a class='btn btn-outline btn-sm' expr:href='data:post.url'>Baca Selengkapnya &#8594;</a>
                     </div>
                   </article>
                 </b:loop>
@@ -1672,7 +1672,7 @@
       </div>
 
       <div class='footer-bottom'>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Pesona Green Residence. All Rights Reserved. Powered by Blogger.</p>
+        <p>&#169; <script>document.write(new Date().getFullYear())</script> Pesona Green Residence. All Rights Reserved. Powered by Blogger.</p>
       </div>
     </div>
   </footer>
