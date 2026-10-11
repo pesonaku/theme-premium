@@ -1128,7 +1128,7 @@
   <!-- ================= HEADER SECTION ================= -->
   <header class='navbar' id='main-navbar'>
     <div class='container nav-wrap'>
-      <b:section id='sec-header' maxwidgets='1' name='[1] Header Logo Perumahan' showaddelement='no'>
+      <b:section id='sec-header' maxwidgets='1' name='[1] Header Logo Perumahan' showaddelement='yes'>
         <b:widget id='Header1' locked='false' title='Logo &amp; Nama Perumahan' type='Header'>
           <b:includable id='main'>
             <a class='nav-brand' expr:href='data:blog.homepageUrl'>
@@ -1168,7 +1168,7 @@
     <!-- ================= [2] HERO BANNER PROMO ================= -->
     <section class='hero-section' id='beranda'>
       <div class='container'>
-        <b:section id='sec-hero' maxwidgets='1' name='[2] Hero Banner &amp; Promo Utama' showaddelement='no'>
+        <b:section id='sec-hero' maxwidgets='1' name='[2] Hero Banner &amp; Promo Utama' showaddelement='yes'>
           <b:widget id='HTML11' locked='false' title='Promo Hero Banner' type='HTML'>
             <b:includable id='main'>
               <b:if cond='data:content'>
@@ -1208,7 +1208,7 @@
           <p class='section-subtitle'>Investasi terbaik untuk masa depan keluarga Anda dengan legalitas aman dan fasilitas terjamin.</p>
         </div>
 
-        <b:section id='sec-keunggulan' maxwidgets='1' name='[3] 5 Poin Keunggulan' showaddelement='no'>
+        <b:section id='sec-keunggulan' maxwidgets='1' name='[3] 5 Poin Keunggulan' showaddelement='yes'>
           <b:widget id='HTML12' locked='false' title='Daftar 5 Keunggulan' type='HTML'>
             <b:includable id='main'>
               <b:if cond='data:content'>
@@ -1263,7 +1263,7 @@
           <button class='filter-btn' data-filter='komersil'>Rumah Komersil</button>
         </div>
 
-        <b:section id='sec-listing' maxwidgets='1' name='[4] Daftar Listing Tipe Rumah' showaddelement='no'>
+        <b:section id='sec-listing' maxwidgets='1' name='[4] Daftar Listing Tipe Rumah' showaddelement='yes'>
           <b:widget id='HTML13' locked='false' title='Daftar Tipe Rumah' type='HTML'>
             <b:includable id='main'>
               <b:if cond='data:content'>
@@ -1352,7 +1352,7 @@
           <p class='section-subtitle'>Pilihan angsuran KPR flat dan terjangkau yang siap disesuaikan dengan kemampuan Anda.</p>
         </div>
 
-        <b:section id='sec-harga' maxwidgets='1' name='[5] Tabel Simulasi Harga &amp; Cicilan' showaddelement='no'>
+        <b:section id='sec-harga' maxwidgets='1' name='[5] Tabel Simulasi Harga &amp; Cicilan' showaddelement='yes'>
           <b:widget id='HTML14' locked='false' title='Tabel Simulasi Cicilan' type='HTML'>
             <b:includable id='main'>
               <b:if cond='data:content'>
@@ -1407,7 +1407,7 @@
           <p class='section-subtitle'>Klik foto untuk memperbesar tampilan menggunakan popup FancyBox resolusi tinggi.</p>
         </div>
 
-        <b:section id='sec-galeri' maxwidgets='1' name='[6] Galeri Foto &amp; Aktivitas' showaddelement='no'>
+        <b:section id='sec-galeri' maxwidgets='1' name='[6] Galeri Foto &amp; Aktivitas' showaddelement='yes'>
           <b:widget id='HTML15' locked='false' title='Foto Galeri Kawasan' type='HTML'>
             <b:includable id='main'>
               <b:if cond='data:content'>
@@ -1449,7 +1449,7 @@
     <!-- ================= [7] PROFIL MARKETING ================= -->
     <section class='section-pad' id='marketing'>
       <div class='container'>
-        <b:section id='sec-marketing' maxwidgets='1' name='[7] Profil Marketing Resmi' showaddelement='no'>
+        <b:section id='sec-marketing' maxwidgets='1' name='[7] Profil Marketing Resmi' showaddelement='yes'>
           <b:widget id='HTML16' locked='false' title='Profil Sales Advisor' type='HTML'>
             <b:includable id='main'>
               <b:if cond='data:content'>
@@ -1485,7 +1485,7 @@
           <p class='section-subtitle'>Temukan jawaban seputar syarat pengajuan KPR, biaya, dan serah terima unit.</p>
         </div>
 
-        <b:section id='sec-faq' maxwidgets='1' name='[8] Tanya Jawab (FAQ)' showaddelement='no'>
+        <b:section id='sec-faq' maxwidgets='1' name='[8] Tanya Jawab (FAQ)' showaddelement='yes'>
           <b:widget id='HTML17' locked='false' title='Daftar FAQ Accordion' type='HTML'>
             <b:includable id='main'>
               <b:if cond='data:content'>
@@ -1548,7 +1548,7 @@
           <p class='section-subtitle'>Kepercayaan dan kepuasan ratusan keluarga yang telah menempati hunian kami.</p>
         </div>
 
-        <b:section id='sec-testimoni' maxwidgets='1' name='[9] Testimoni Konsumen' showaddelement='no'>
+        <b:section id='sec-testimoni' maxwidgets='1' name='[9] Testimoni Konsumen' showaddelement='yes'>
           <b:widget id='HTML18' locked='false' title='Daftar Ulasan &amp; Rating' type='HTML'>
             <b:includable id='main'>
               <b:if cond='data:content'>
@@ -1607,7 +1607,7 @@
           <p class='section-subtitle'>Buka setiap hari pukul 08:30 - 17:30 WIB. Jadwalkan survei gratis Anda sekarang.</p>
         </div>
 
-        <b:section id='sec-lokasi' maxwidgets='1' name='[10] Lokasi &amp; Google Maps' showaddelement='no'>
+        <b:section id='sec-lokasi' maxwidgets='1' name='[10] Lokasi &amp; Google Maps' showaddelement='yes'>
           <b:widget id='HTML19' locked='false' title='Alamat &amp; Peta' type='HTML'>
             <b:includable id='main'>
               <b:if cond='data:content'>
@@ -1649,7 +1649,7 @@
           <p class='section-subtitle'>Otomatis mengambil postingan artikel yang Anda tulis di menu Postingan Blogger.</p>
         </div>
 
-        <b:section id='sec-blog' maxwidgets='1' name='[11] Postingan Blog' showaddelement='no'>
+        <b:section id='sec-blog' maxwidgets='1' name='[11] Postingan Blog' showaddelement='yes'>
           <b:widget id='Blog1' locked='false' title='Postingan Blog Bawaan' type='Blog'>
             <b:includable id='main'>
               <div class='testi-grid'>
@@ -1690,7 +1690,7 @@
     <div class='container'>
       <div class='footer-grid'>
         <div class='footer-brand'>
-          <b:section id='sec-footer-brand' maxwidgets='1' name='[12] Info Brand Footer' showaddelement='no'>
+          <b:section id='sec-footer-brand' maxwidgets='1' name='[12] Info Brand Footer' showaddelement='yes'>
             <b:widget id='HTML20' locked='false' title='Tentang Perumahan di Footer' type='HTML'>
               <b:includable id='main'>
                 <b:if cond='data:content'>
@@ -1739,7 +1739,7 @@
   </footer>
 
   <!-- ================= [13] FLOATING CHAT & LEAD CAPTURE ================= -->
-  <b:section id='sec-chat' maxwidgets='1' name='[13] Floating Chat &amp; Nomor WhatsApp' showaddelement='no'>
+  <b:section id='sec-chat' maxwidgets='1' name='[13] Floating Chat &amp; Nomor WhatsApp' showaddelement='yes'>
     <b:widget id='HTML21' locked='false' title='Pengaturan Chat &amp; Nomor WA' type='HTML'>
       <b:includable id='main'>
         <b:if cond='data:content'>
